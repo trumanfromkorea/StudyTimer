@@ -122,6 +122,13 @@
                             <constraint firstItem="6G5-K7-CcC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="15" id="tku-pD-jk9"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="0UX-86-VgQ">
+                        <barButtonItem key="rightBarButtonItem" title="로그아웃" id="GRV-m4-Nf8">
+                            <connections>
+                                <action selector="onTappedRightBarButton:" destination="Y6W-OH-hqX" id="3GC-w0-mNg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="calendarView" destination="DtN-gK-dJD" id="QkU-yT-GTA"/>
                         <outlet property="studyTimeView" destination="gGY-In-Snq" id="DdR-UW-gm6"/>
@@ -130,7 +137,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="115.84821428571428"/>
+            <point key="canvasLocation" x="1042.0289855072465" y="115.84821428571428"/>
         </scene>
     </scenes>
     <resources>

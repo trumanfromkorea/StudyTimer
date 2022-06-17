@@ -5,6 +5,7 @@
 //  Created by 장재훈 on 2022/06/08.
 //
 
+import FirebaseAuth
 import UIKit
 
 class HomeViewController: UIViewController {
@@ -22,32 +23,14 @@ class HomeViewController: UIViewController {
         weeklyView.layer.cornerRadius = 10
         calendarView.layer.cornerRadius = 10
 
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        navigationItem.hidesBackButton = true
-        
         configureTouchEvents()
     }
-//
-//    private func addNaviBar() {
-//
-//        // safe area
-//        var statusBarHeight: CGFloat = 0
-//        statusBarHeight = UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0
-//
-//        // navigationBar
-//        let naviBar = UINavigationBar(frame: .init(x: 0, y: statusBarHeight, width: view.frame.width, height: statusBarHeight))
-//        naviBar.isTranslucent = false
-//        naviBar.backgroundColor = .systemBackground
-//
-//        let naviItem = UINavigationItem(title: "title")
-//        naviItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapDoneButton))
-//        naviBar.items = [naviItem]
-//
-//        view.addSubview(naviBar)
-//    }
-//    @objc func didTapDoneButton() {
-//        print("hello")
-//    }
+
+    @IBAction func onTappedRightBarButton(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+        } catch {}
+    }
 
     private func configureTouchEvents() {
         let studyViewTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapStudyView))

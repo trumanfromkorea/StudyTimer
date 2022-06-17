@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D08BC9F285D0F2800D34CC7 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D08BC9E285D0F2800D34CC7 /* AuthModel.swift */; };
 		0D1A3F332851F73800685D86 /* StopTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1A3F322851F73800685D86 /* StopTimerViewController.swift */; };
 		0D28EF6A285B15B300E6AFF4 /* AuthView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D28EF69285B15B300E6AFF4 /* AuthView.storyboard */; };
 		0D28EF6C285B15C500E6AFF4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D28EF6B285B15C500E6AFF4 /* SignInViewController.swift */; };
@@ -60,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D08BC9E285D0F2800D34CC7 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
 		0D1A3F322851F73800685D86 /* StopTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopTimerViewController.swift; sourceTree = "<group>"; };
 		0D28EF69285B15B300E6AFF4 /* AuthView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthView.storyboard; sourceTree = "<group>"; };
 		0D28EF6B285B15C500E6AFF4 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				0D519F9428525CBE00EAED72 /* ThemeModel.swift */,
 				0DA4648A285336EC003CE149 /* DateTimeModel.swift */,
 				0D28EF6F285B1B9B00E6AFF4 /* ValidationModel.swift */,
+				0D08BC9E285D0F2800D34CC7 /* AuthModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				0D519F9528525CBE00EAED72 /* ThemeModel.swift in Sources */,
 				0DA4648B285336EC003CE149 /* DateTimeModel.swift in Sources */,
 				0D9D06FA2852FD890072DC8D /* WeeklyViewController.swift in Sources */,
+				0D08BC9F285D0F2800D34CC7 /* AuthModel.swift in Sources */,
 				0DED8AA6284F5646004345F9 /* SceneDelegate.swift in Sources */,
 				0D9E06ED28503D340031AA55 /* HomeViewController.swift in Sources */,
 			);

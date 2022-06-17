@@ -5,8 +5,8 @@
 //  Created by 장재훈 on 2022/06/16.
 //
 
-import UIKit
 import FirebaseAuth
+import UIKit
 
 class SignInViewController: UIViewController {
     static let identifier = "SignInViewController"
@@ -20,17 +20,19 @@ class SignInViewController: UIViewController {
 
         passwordField.isSecureTextEntry = true
     }
-    
+
     @IBAction func onTappedSignInButton(_ sender: Any) {
         validateInput()
     }
-    
+
     @IBAction func onTappedSignUpButton(_ sender: Any) {
         let storyboard = UIStoryboard(name: SignUpViewController.storyboard, bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: SignUpViewController.identifier) as! SignUpViewController
+        vc.title = "회원가입"
+
         navigationController?.pushViewController(vc, animated: true)
     }
-    
+
     private func validateInput() {
         if !Validation.email(emailField.text) {
             print("Invalid Email")
@@ -42,6 +44,7 @@ class SignInViewController: UIViewController {
                     print(">> FB Sign In Error : \(error)")
                 } else {
                     print("Sign In Complete")
+                    
                 }
             }
         }

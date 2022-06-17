@@ -11,24 +11,37 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
+    // Root View 설정
+    func setRootViewController(_ protectedPage: UIViewController) {
+        let rootViewController = UINavigationController(rootViewController: protectedPage)
+        window!.rootViewController = rootViewController
+        window!.makeKeyAndVisible()
+    }
+
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // 사용자 로그인 여부 확인
-        var mainStoryboard: UIStoryboard?
-        var protectedPage: UIViewController?
+        let rootInfo = RootInfo.global
+        var protectedPage = Auth.auth().currentUser != nil
+            ? rootInfo.rootToHomeView()
+            : rootInfo.rootToSignInView()
 
-        if Auth.auth().currentUser != nil {
-            mainStoryboard = UIStoryboard(name: HomeViewController.storyboard, bundle: nil)
-            protectedPage = mainStoryboard!.instantiateViewController(withIdentifier: HomeViewController.identifier) as! HomeViewController
-        } else {
-            mainStoryboard = UIStoryboard(name: SignInViewController.storyboard, bundle: nil)
-            protectedPage = mainStoryboard!.instantiateViewController(withIdentifier: SignInViewController.identifier) as! SignInViewController
+        setRootViewController(protectedPage)
+
+        // 사용자 상태 변경 리스너
+        Auth.auth().addStateDidChangeListener { _, user in
+            if user != nil {
+                print("Sign In")
+                protectedPage = rootInfo.rootToHomeView()
+            } else {
+                print("Sign Out")
+                protectedPage = rootInfo.rootToSignInView()
+            }
+            self.setRootViewController(protectedPage)
         }
-        window!.rootViewController = protectedPage
-        window!.makeKeyAndVisible()
 
         guard let _ = (scene as? UIWindowScene) else { return }
     }

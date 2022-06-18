@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// Root ViewController 설정 바꿔주는 메소드
 class RootInfo {
     static let global = RootInfo()
 

@@ -14,73 +14,60 @@ class TimerViewController: UIViewController {
     var timer: Timer?
     var seconds: Int = 0
 
+    var startTime: Date?
+    var endTime: Date?
+    var timeFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "KR")
+        formatter.dateFormat = "HH:mm:ss"
+
+        return formatter
+    }
+
     let enabledButtonColor = Theme.mainColor
     let disabledButtonColor = Theme.supplementColor2
 
     @IBOutlet var timerLabel: UILabel!
-    @IBOutlet var playPauseButton: UIButton!
-    @IBOutlet var stopButton: UIButton!
+    @IBOutlet var timerButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         navigationItem.largeTitleDisplayMode = .never
-        
+
         configureButtonState()
     }
 
-    @IBAction func onTappedPlayPauseButton(_ sender: Any) {
-        if let newTimer = timer {
-            if newTimer.isValid {
-                stopTimer()
-            } else {
-                startTimer()
-            }
+    @IBAction func onTappedButton(_ sender: Any) {
+        if timer != nil {
+            stopAlert()
         } else {
-            print("tapped!")
             startTimer()
         }
     }
 
-    @IBAction func onTappedStopButton(_ sender: Any) {
-        stopAlert()
-    }
-
     func configureButtonState() {
-        playPauseButton.layer.cornerRadius = 15
-        stopButton.layer.cornerRadius = 15
-
-        playPauseButton.backgroundColor = enabledButtonColor
-        stopButton.backgroundColor = disabledButtonColor
+        timerButton.layer.cornerRadius = 15
+        timerButton.backgroundColor = enabledButtonColor
     }
 
     func startTimer() {
+        startTime = Date()
         navigationItem.hidesBackButton = true
 
-        playPauseButton.setTitle("Pause", for: .normal)
-        playPauseButton.backgroundColor = enabledButtonColor
-
-        stopButton.backgroundColor = enabledButtonColor
+        timerButton.setTitle("Stop", for: .normal)
+        timerButton.backgroundColor = disabledButtonColor
 
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(onTimeFires), userInfo: nil, repeats: true)
-    }
-
-    func stopTimer() {
-        playPauseButton.setTitle("Play", for: .normal)
-        playPauseButton.backgroundColor = enabledButtonColor
-
-        stopButton.backgroundColor = disabledButtonColor
-
-        timer?.invalidate()
     }
 
     func stopAlert() {
         let sheet = UIAlertController(title: "정지", message: "정말 정지하시겠습니까?", preferredStyle: .alert)
         sheet.addAction(UIAlertAction(title: "아니오", style: .default))
         sheet.addAction(UIAlertAction(title: "예", style: .default, handler: { _ in
-            self.stopTimer()
+            self.endTime = Date()
+            self.timer?.invalidate()
             self.setTimeLabel()
-            
             self.navigateStopTimerView()
         }))
 
@@ -100,9 +87,10 @@ class TimerViewController: UIViewController {
         let storyboard = UIStoryboard(name: TimerViewController.storyboard, bundle: nil)
 
         let vc = storyboard.instantiateViewController(withIdentifier: StopTimerViewController.identifier) as! StopTimerViewController
-        vc.studyTime = seconds
         
-        self.seconds = 0
+        vc.studyTime = seconds
+        vc.startTime = TimeModel.getSecondsFromTimeFormat(timeFormatter.string(from: startTime!))
+        vc.endTime = TimeModel.getSecondsFromTimeFormat(timeFormatter.string(from: endTime!))
 
         navigationController?.pushViewController(vc, animated: true)
     }

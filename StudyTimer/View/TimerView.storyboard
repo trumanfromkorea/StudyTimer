@@ -18,8 +18,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DeV-xC-VcB">
-                                <rect key="frame" x="50" y="341.33333333333331" width="290" height="71.666666666666686"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="60"/>
+                                <rect key="frame" x="50" y="392" width="290" height="60"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="50"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -46,8 +46,8 @@
                             <constraint firstItem="DeV-xC-VcB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="50" id="41l-pj-W3H"/>
                             <constraint firstItem="Bry-oB-70v" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="BaB-o7-h7U"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Bry-oB-70v" secondAttribute="bottom" constant="50" id="Dxa-sv-dMe"/>
-                            <constraint firstItem="DeV-xC-VcB" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" constant="-50" id="Hpn-d0-Viu"/>
-                            <constraint firstItem="DeV-xC-VcB" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="XJD-og-sVG"/>
+                            <constraint firstItem="DeV-xC-VcB" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="Hpn-d0-Viu"/>
+                            <constraint firstItem="DeV-xC-VcB" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="XJD-og-sVG"/>
                         </constraints>
                     </view>
                     <connections>

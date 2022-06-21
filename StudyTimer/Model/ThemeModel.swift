@@ -12,4 +12,5 @@ struct Theme {
     static let mainColor = UIColor(hex: "#556EE6")
     static let supplementColor1 = UIColor(hex: "#778BEB")
     static let supplementColor2 = UIColor(hex: "#9DA9E3")
+    static let darkColor1 = UIColor(hex: "#2d47cc")
 }

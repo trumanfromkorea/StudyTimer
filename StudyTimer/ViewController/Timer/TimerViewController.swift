@@ -14,7 +14,10 @@ class TimerViewController: UIViewController {
     var timer: Timer?
     var seconds: Int = 0
     let minimumSeconds: Int = 0
-    let maximumSeconds: Int = 3600 * 3
+    let maximumSeconds: Int = 3600 * 2
+
+    var circularProgressBarView: CircularProgressBarView!
+    var circularViewDuration: TimeInterval = 3600 * 2
 
     var startTime: Date?
     var endTime: Date?
@@ -37,7 +40,20 @@ class TimerViewController: UIViewController {
 
         navigationItem.largeTitleDisplayMode = .never
 
+        setUpCircularProgressBarView()
         configureButtonState()
+    }
+
+    func setUpCircularProgressBarView() {
+        // set view
+        circularProgressBarView = CircularProgressBarView(frame: view.frame)
+        // align to the center of the screen
+        circularProgressBarView.center = view.center
+        // call the animation with circularViewDuration
+//        circularProgressBarView.progressAnimation(duration: circularViewDuration)
+        // add this view to the view controller
+        view.addSubview(circularProgressBarView)
+        view.bringSubviewToFront(timerButton)
     }
 
     @IBAction func onTappedButton(_ sender: Any) {
@@ -45,6 +61,7 @@ class TimerViewController: UIViewController {
             seconds < minimumSeconds ? unreachedMinimumTime() : stopAlert()
         } else {
             startTimer()
+            circularProgressBarView.progressAnimation(duration: circularViewDuration)
         }
     }
 
@@ -75,7 +92,7 @@ class TimerViewController: UIViewController {
 
         present(sheet, animated: true)
     }
-    
+
     // 10분 이내 종료 시 기록 불가능
     func unreachedMinimumTime() {
         let sheet = UIAlertController(title: "정지", message: "10분 이내 종료 시 공부시간이 기록되지 않습니다. 정말로 종료하시겠습니까?", preferredStyle: .alert)
@@ -87,9 +104,9 @@ class TimerViewController: UIViewController {
 
         present(sheet, animated: true)
     }
-    
+
     func reachedMaximumTime() {
-        let sheet = UIAlertController(title: "기록 종료", message: "1회 최대 기록시간인 3시간동안 집중하셨습니다. 고생했어요!", preferredStyle: .alert)
+        let sheet = UIAlertController(title: "기록 종료", message: "1회 최대 기록시간인 2시간동안 집중하셨습니다. 고생했어요!", preferredStyle: .alert)
         sheet.addAction(UIAlertAction(title: "확인", style: .default, handler: { _ in
             self.navigateStopTimerView()
         }))
@@ -100,12 +117,12 @@ class TimerViewController: UIViewController {
     @objc func onTimeFires() {
         seconds += 1
         setTimeLabel()
-        
+
         if seconds == maximumSeconds {
-            self.endTime = Date()
-            self.timer?.invalidate()
-            self.setTimeLabel()
-            self.reachedMaximumTime()
+            endTime = Date()
+            timer?.invalidate()
+            setTimeLabel()
+            reachedMaximumTime()
         }
     }
 
@@ -117,7 +134,7 @@ class TimerViewController: UIViewController {
         let storyboard = UIStoryboard(name: TimerViewController.storyboard, bundle: nil)
 
         let vc = storyboard.instantiateViewController(withIdentifier: StopTimerViewController.identifier) as! StopTimerViewController
-        
+
         vc.studyTime = seconds
         vc.startTime = TimeModel.getSecondsFromTimeFormat(timeFormatter.string(from: startTime!))
         vc.endTime = TimeModel.getSecondsFromTimeFormat(timeFormatter.string(from: endTime!))

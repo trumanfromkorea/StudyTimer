@@ -41,6 +41,7 @@
 		0DED8AD8284F5729004345F9 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DED8AD7284F5729004345F9 /* TimerViewController.swift */; };
 		0DED8ADA284F5757004345F9 /* TimerView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DED8AD9284F5757004345F9 /* TimerView.storyboard */; };
 		0DED8ADC284F670A004345F9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DED8ADB284F670A004345F9 /* Extensions.swift */; };
+		0DEF5C812861FC1C00BCC206 /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEF5C802861FC1C00BCC206 /* CircularProgressBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		0DED8AD7284F5729004345F9 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		0DED8AD9284F5757004345F9 /* TimerView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimerView.storyboard; sourceTree = "<group>"; };
 		0DED8ADB284F670A004345F9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		0DEF5C802861FC1C00BCC206 /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +242,7 @@
 				0DED8AD7284F5729004345F9 /* TimerViewController.swift */,
 				0D1A3F322851F73800685D86 /* StopTimerViewController.swift */,
 				0D9B042F2853B556008CFA41 /* RatingCell.swift */,
+				0DEF5C802861FC1C00BCC206 /* CircularProgressBarView.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				0DED8AD8284F5729004345F9 /* TimerViewController.swift in Sources */,
 				0D28EF70285B1B9B00E6AFF4 /* ValidationModel.swift in Sources */,
 				0DED8AA8284F5646004345F9 /* ViewController.swift in Sources */,
+				0DEF5C812861FC1C00BCC206 /* CircularProgressBarView.swift in Sources */,
 				0DED8AA4284F5646004345F9 /* AppDelegate.swift in Sources */,
 				0D28EF6C285B15C500E6AFF4 /* SignInViewController.swift in Sources */,
 				0D1A3F332851F73800685D86 /* StopTimerViewController.swift in Sources */,

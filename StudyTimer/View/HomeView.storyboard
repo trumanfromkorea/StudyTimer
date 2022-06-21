@@ -123,7 +123,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0UX-86-VgQ">
-                        <barButtonItem key="rightBarButtonItem" title="로그아웃" id="GRV-m4-Nf8">
+                        <barButtonItem key="rightBarButtonItem" image="person.circle.fill" catalog="system" id="GRV-m4-Nf8">
+                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="onTappedRightBarButton:" destination="Y6W-OH-hqX" id="3GC-w0-mNg"/>
                             </connections>
@@ -143,6 +144,7 @@
     </scenes>
     <resources>
         <image name="chart.bar.xaxis" catalog="system" width="128" height="98"/>
+        <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="separatorColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

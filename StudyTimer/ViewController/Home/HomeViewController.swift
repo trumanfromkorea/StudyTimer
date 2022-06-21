@@ -44,9 +44,10 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func onTappedRightBarButton(_ sender: Any) {
-        do {
-            try Auth.auth().signOut()
-        } catch {}
+        let storyboard = UIStoryboard(name: SettingsViewController.storyboard, bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: SettingsViewController.identifier) as! SettingsViewController
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     private func configureTouchEvents() {

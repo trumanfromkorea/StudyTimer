@@ -15,6 +15,7 @@ class TimerViewController: UIViewController {
     var seconds: Int = 0
     let minimumSeconds: Int = 0
     let maximumSeconds: Int = 3600 * 2
+    let hourInterval = 3600
 
     var progressBarA: CircularProgressBarView!
     var progressBarB: CircularProgressBarView!
@@ -107,7 +108,7 @@ class TimerViewController: UIViewController {
         seconds += 1
         setTimeLabel()
 
-        if seconds == 10 {
+        if seconds == hourInterval {
             setProgressBarB()
         }
 

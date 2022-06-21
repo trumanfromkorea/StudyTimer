@@ -13,6 +13,15 @@ struct DateInfo {
 }
 
 struct TimeModel {
+    static func getTimeStringFromSeconds(seconds: Int) -> String {
+        
+        let hour = seconds / 3600
+        let min = (seconds % 3600) / 60
+        
+        let result = "\(min)분"
+        return hour == 0 ? result : "\(hour)시간 \(result)"
+    }
+
     static func getTimeFromSeconds(seconds: Int) -> String {
         let min = seconds / 60
         let sec = seconds % 60

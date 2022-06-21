@@ -44,8 +44,6 @@ class StopTimerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print(studyTime)
-
         ratingCollectionView.delegate = self
 
         configureStates()
@@ -61,48 +59,72 @@ class StopTimerViewController: UIViewController {
             print("미입력 항목 있음")
             return
         }
-
-        storeStudyInfo()
+        if endTime < startTime {
+            whenDateIsDifferent()
+        } else {
+            let dateString = dateFormatter.string(from: Date())
+            storeStudyInfo(dateString: dateString, startTime: startTime, endTime: endTime, studyTime: studyTime, showPopup: true)
+        }
     }
 
-    private func storeStudyInfo() {
+    // 날짜 넘어가는 부분
+    private func whenDateIsDifferent() {
+        let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: Date())
+        let dateA = dateFormatter.string(from: yesterday!)
+        let dateB = dateFormatter.string(from: Date())
+
+        let startTimeA = startTime
+        let endTimeA = 86399
+        let studyTimeA = endTimeA - startTimeA
+
+        let startTimeB = 0
+        let endTimeB = endTime
+        let studyTimeB = endTime
+
+        storeStudyInfo(dateString: dateA, startTime: startTimeA, endTime: endTimeA, studyTime: studyTimeA, showPopup: false)
+        storeStudyInfo(dateString: dateB, startTime: startTimeB, endTime: endTimeB, studyTime: studyTimeB, showPopup: true)
+    }
+
+    private func storeStudyInfo(dateString: String, startTime: Int, endTime: Int, studyTime: Int, showPopup: Bool) {
         let db = Firestore.firestore()
         let uid = Auth.auth().currentUser!.uid
-        let dateString = dateFormatter.string(from: Date())
 
         db.collection("users").document(uid)
             .collection("studies").document(dateString).getDocument { document, _ in
+
                 let details: Array<Any> = [[
                     "contents": self.studyContentsField.text!,
-                    "startTime": self.startTime,
-                    "endTime": self.endTime,
-                    "studyTime": self.studyTime,
+                    "startTime": startTime,
+                    "endTime": endTime,
+                    "studyTime": studyTime,
                     "rating": self.ratingIndex!,
                 ]]
+
                 if let document = document, document.exists {
                     document.reference.updateData([
-                        "totalTime": FieldValue.increment(Int64(self.studyTime)),
+                        "totalTime": FieldValue.increment(Int64(studyTime)),
                         "details": FieldValue.arrayUnion(details),
                     ]) { error in
                         if error != nil {
                             print("Firestore error : \(String(describing: error))")
-                        } else {
-                            self.completePopUp()
+                            return
                         }
+                        if showPopup { self.completePopUp() }
                     }
                 } else {
                     document?.reference.setData([
-                        "totalTime": self.studyTime,
+                        "totalTime": studyTime,
                         "details": details,
                     ]) { error in
                         if error != nil {
                             print("Firestore error : \(String(describing: error))")
-                        } else {
-                            self.completePopUp()
+                            return
                         }
+                        if showPopup { self.completePopUp() }
                     }
                 }
             }
+
     }
 
     private func completePopUp() {

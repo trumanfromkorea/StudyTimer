@@ -6,6 +6,7 @@
 //
 
 import FirebaseAuth
+import FirebaseFirestore
 import UIKit
 
 class HomeViewController: UIViewController {
@@ -13,17 +14,33 @@ class HomeViewController: UIViewController {
     static let storyboard = "HomeView"
 
     @IBOutlet var studyTimeView: UIView!
+    @IBOutlet var studyTimeLabel: UILabel!
+
     @IBOutlet var weeklyView: UIView!
     @IBOutlet var calendarView: UIView!
 
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "KR")
+        formatter.dateFormat = "YYYY-MM-dd"
+
+        return formatter
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        studyTimeLabel.text = " "
         studyTimeView.layer.cornerRadius = 10
         weeklyView.layer.cornerRadius = 10
         calendarView.layer.cornerRadius = 10
 
         configureTouchEvents()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        getStudyTime()
     }
 
     @IBAction func onTappedRightBarButton(_ sender: Any) {
@@ -69,5 +86,23 @@ class HomeViewController: UIViewController {
         vc.title = "Calendar View"
 
         navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension HomeViewController {
+    private func getStudyTime() {
+        let db = Firestore.firestore()
+        let uid = Auth.auth().currentUser!.uid
+        let dateString = dateFormatter.string(from: Date())
+
+        db.collection("users").document(uid)
+            .collection("studies").document(dateString).getDocument { document, _ in
+                if let document = document, document.exists {
+                    let studyTime = document.data()!["totalTime"]! as! Int
+                    self.studyTimeLabel.text = TimeModel.getTimeStringFromSeconds(seconds: studyTime)
+                } else {
+                    print("no studyTime")
+                }
+            }
     }
 }

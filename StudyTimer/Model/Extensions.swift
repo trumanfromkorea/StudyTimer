@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 extension UIColor {
+    // 16진수 색상
     convenience init(hex: String, alpha: CGFloat = 1.0) {
         var hexFormatted: String = hex.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).uppercased()
 
@@ -29,6 +30,7 @@ extension UIColor {
 }
 
 extension String {
+    // emoji 를 이미지로 변경
     func emojiToImg() -> UIImage? {
         let size = CGSize(width: 100, height: 100)  // 내가 원하는 이미지 사이즈
         UIGraphicsBeginImageContextWithOptions(size, false, 0)

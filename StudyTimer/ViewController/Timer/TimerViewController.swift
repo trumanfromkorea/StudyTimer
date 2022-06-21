@@ -13,6 +13,8 @@ class TimerViewController: UIViewController {
 
     var timer: Timer?
     var seconds: Int = 0
+    let minimumSeconds: Int = 0
+    let maximumSeconds: Int = 3600 * 3
 
     var startTime: Date?
     var endTime: Date?
@@ -40,7 +42,7 @@ class TimerViewController: UIViewController {
 
     @IBAction func onTappedButton(_ sender: Any) {
         if timer != nil {
-            stopAlert()
+            seconds < minimumSeconds ? unreachedMinimumTime() : stopAlert()
         } else {
             startTimer()
         }
@@ -73,10 +75,38 @@ class TimerViewController: UIViewController {
 
         present(sheet, animated: true)
     }
+    
+    // 10분 이내 종료 시 기록 불가능
+    func unreachedMinimumTime() {
+        let sheet = UIAlertController(title: "정지", message: "10분 이내 종료 시 공부시간이 기록되지 않습니다. 정말로 종료하시겠습니까?", preferredStyle: .alert)
+        sheet.addAction(UIAlertAction(title: "아니오", style: .default))
+        sheet.addAction(UIAlertAction(title: "예", style: .default, handler: { _ in
+            self.timer?.invalidate()
+            self.navigationController?.popViewController(animated: true)
+        }))
+
+        present(sheet, animated: true)
+    }
+    
+    func reachedMaximumTime() {
+        let sheet = UIAlertController(title: "기록 종료", message: "1회 최대 기록시간인 3시간동안 집중하셨습니다. 고생했어요!", preferredStyle: .alert)
+        sheet.addAction(UIAlertAction(title: "확인", style: .default, handler: { _ in
+            self.navigateStopTimerView()
+        }))
+
+        present(sheet, animated: true)
+    }
 
     @objc func onTimeFires() {
         seconds += 1
         setTimeLabel()
+        
+        if seconds == maximumSeconds {
+            self.endTime = Date()
+            self.timer?.invalidate()
+            self.setTimeLabel()
+            self.reachedMaximumTime()
+        }
     }
 
     func setTimeLabel() {

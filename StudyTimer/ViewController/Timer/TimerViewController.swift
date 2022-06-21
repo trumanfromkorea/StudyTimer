@@ -16,8 +16,9 @@ class TimerViewController: UIViewController {
     let minimumSeconds: Int = 0
     let maximumSeconds: Int = 3600 * 2
 
-    var circularProgressBarView: CircularProgressBarView!
-    var circularViewDuration: TimeInterval = 3600 * 2
+    var progressBarA: CircularProgressBarView!
+    var progressBarB: CircularProgressBarView!
+    var circularViewDuration: TimeInterval = 3600
 
     var startTime: Date?
     var endTime: Date?
@@ -40,20 +41,8 @@ class TimerViewController: UIViewController {
 
         navigationItem.largeTitleDisplayMode = .never
 
-        setUpCircularProgressBarView()
+        setProgressBarA()
         configureButtonState()
-    }
-
-    func setUpCircularProgressBarView() {
-        // set view
-        circularProgressBarView = CircularProgressBarView(frame: view.frame)
-        // align to the center of the screen
-        circularProgressBarView.center = view.center
-        // call the animation with circularViewDuration
-//        circularProgressBarView.progressAnimation(duration: circularViewDuration)
-        // add this view to the view controller
-        view.addSubview(circularProgressBarView)
-        view.bringSubviewToFront(timerButton)
     }
 
     @IBAction func onTappedButton(_ sender: Any) {
@@ -61,7 +50,7 @@ class TimerViewController: UIViewController {
             seconds < minimumSeconds ? unreachedMinimumTime() : stopAlert()
         } else {
             startTimer()
-            circularProgressBarView.progressAnimation(duration: circularViewDuration)
+            progressBarA.progressAnimation(duration: circularViewDuration)
         }
     }
 
@@ -118,6 +107,10 @@ class TimerViewController: UIViewController {
         seconds += 1
         setTimeLabel()
 
+        if seconds == 10 {
+            setProgressBarB()
+        }
+
         if seconds == maximumSeconds {
             endTime = Date()
             timer?.invalidate()
@@ -140,5 +133,33 @@ class TimerViewController: UIViewController {
         vc.endTime = TimeModel.getSecondsFromTimeFormat(timeFormatter.string(from: endTime!))
 
         navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+// MARK: - Progress Bar
+
+extension TimerViewController {
+    func setProgressBarA() {
+        // set view
+        progressBarA = CircularProgressBarView(frame: view.frame)
+        progressBarA.createCircularPath(gradientColors: Theme.circularBarColor1, backLayerColor: UIColor.black.withAlphaComponent(0.9))
+        // align to the center of the screen
+        progressBarA.center = view.center
+        // add this view to the view controller
+        view.addSubview(progressBarA)
+        view.bringSubviewToFront(timerButton)
+    }
+
+    func setProgressBarB() {
+        // set view
+        progressBarB = CircularProgressBarView(frame: view.frame)
+        progressBarB.createCircularPath(gradientColors: Theme.circularBarColor2, backLayerColor: UIColor.black.withAlphaComponent(0))
+        // align to the center of the screen
+        progressBarB.center = view.center
+        // call the animation with circularViewDuration
+        progressBarB.progressAnimation(duration: circularViewDuration)
+        // add this view to the view controller
+        view.addSubview(progressBarB)
+        view.bringSubviewToFront(timerButton)
     }
 }

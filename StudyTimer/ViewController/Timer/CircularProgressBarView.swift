@@ -17,19 +17,17 @@ class CircularProgressBarView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        createCircularPath()
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        createCircularPath()
     }
 
-    func createCircularPath() {
+    func createCircularPath(gradientColors: [UIColor], backLayerColor: UIColor) {
         let gradient = CAGradientLayer()
         gradient.frame = frame
         gradient.type = .conic
-        gradient.colors = [Theme.darkColor1, Theme.supplementColor1, Theme.supplementColor2, Theme.mainColor, Theme.mainColor, Theme.darkColor1].map(\.cgColor)
+        gradient.colors = gradientColors.map(\.cgColor)
         gradient.startPoint = CGPoint(x: 0.5, y: 0.5)
         let endY = 0.5 + frame.size.width / frame.size.height / 2
         gradient.endPoint = CGPoint(x: 1, y: endY)
@@ -49,8 +47,7 @@ class CircularProgressBarView: UIView {
         circleLayer.lineCap = .round
         circleLayer.lineWidth = 25.0
         circleLayer.strokeEnd = 1.0
-        circleLayer.strokeColor = UIColor.black.withAlphaComponent(0.9).cgColor
-
+        circleLayer.strokeColor = backLayerColor.cgColor
         // added circleLayer to layer
         layer.addSublayer(circleLayer)
         layer.addSublayer(gradient)

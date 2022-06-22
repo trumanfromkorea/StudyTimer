@@ -63,7 +63,7 @@ class StopTimerViewController: UIViewController {
             whenDateIsDifferent()
         } else {
             let dateString = dateFormatter.string(from: Date())
-            storeStudyInfo(dateString: dateString, startTime: startTime, endTime: endTime, studyTime: studyTime, showPopup: true)
+            storeStudyInfo(dateString: "2022-06-10", startTime: startTime, endTime: endTime, studyTime: studyTime, showPopup: true)
         }
     }
 
@@ -113,6 +113,7 @@ class StopTimerViewController: UIViewController {
                     }
                 } else {
                     document?.reference.setData([
+                        "dateString": dateString,
                         "totalTime": studyTime,
                         "details": details,
                     ]) { error in
@@ -149,7 +150,7 @@ class StopTimerViewController: UIViewController {
         fromListButton.titleLabel?.textColor = Theme.mainColor
         fromListButton.tintColor = Theme.mainColor
 
-        studyTimeLabel.text = TimeModel.getTimeFromSeconds(seconds: studyTime)
+        studyTimeLabel.text = TimeModel.getTimeStringFromSeconds(seconds: studyTime)
     }
 }
 

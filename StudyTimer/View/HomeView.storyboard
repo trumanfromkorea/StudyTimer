@@ -132,6 +132,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="calendarView" destination="DtN-gK-dJD" id="QkU-yT-GTA"/>
+                        <outlet property="dateLabel" destination="z7j-bb-f3J" id="mlO-jB-38M"/>
                         <outlet property="studyTimeLabel" destination="2Q3-zp-P1q" id="zOF-GY-YJ7"/>
                         <outlet property="studyTimeView" destination="gGY-In-Snq" id="DdR-UW-gm6"/>
                         <outlet property="weeklyView" destination="2LM-LM-Bwx" id="BGS-9R-Ztp"/>

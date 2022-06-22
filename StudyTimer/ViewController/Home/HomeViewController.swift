@@ -15,15 +15,23 @@ class HomeViewController: UIViewController {
 
     @IBOutlet var studyTimeView: UIView!
     @IBOutlet var studyTimeLabel: UILabel!
-
+    @IBOutlet weak var dateLabel: UILabel!
+    
     @IBOutlet var weeklyView: UIView!
     @IBOutlet var calendarView: UIView!
 
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "KR")
+        formatter.locale = Locale(identifier: "ko")
         formatter.dateFormat = "YYYY-MM-dd"
 
+        return formatter
+    }
+    
+    var koreanDateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko")
+        formatter.dateFormat = "YYYY년 M월 d일 (eee)"
         return formatter
     }
 
@@ -34,6 +42,8 @@ class HomeViewController: UIViewController {
         studyTimeView.layer.cornerRadius = 10
         weeklyView.layer.cornerRadius = 10
         calendarView.layer.cornerRadius = 10
+        
+        dateLabel.text = koreanDateFormatter.string(from: Date())
 
         configureTouchEvents()
     }

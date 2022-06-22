@@ -14,10 +14,9 @@ struct DateInfo {
 
 struct TimeModel {
     static func getTimeStringFromSeconds(seconds: Int) -> String {
-        
         let hour = seconds / 3600
         let min = (seconds % 3600) / 60
-        
+
         let result = "\(min)분"
         return hour == 0 ? result : "\(hour)시간 \(result)"
     }
@@ -37,5 +36,35 @@ struct TimeModel {
         let time = input.split(separator: ":").map { Int($0)! }
         let seconds = time[0] * 3600 + time[1] * 60 + time[2]
         return seconds
+    }
+}
+
+struct DateModel {
+    static var commonFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko")
+        formatter.dateFormat = "YYYY-MM-dd"
+        return formatter
+    }
+
+    static var koreanFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko")
+        formatter.dateFormat = "YYYY년 M월 d일 (eee)"
+        return formatter
+    }
+
+    static var monthDayFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko")
+        formatter.dateFormat = "MM/dd"
+        return formatter
+    }
+
+    static var KST: Date {
+        let dateString = commonFormatter.string(from: Date())
+        let accurateDay = commonFormatter.date(from: dateString)!
+
+        return accurateDay
     }
 }

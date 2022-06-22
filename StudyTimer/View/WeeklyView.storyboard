@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,25 +14,81 @@
             <objects>
                 <viewController storyboardIdentifier="WeeklyViewController" id="Y6W-OH-hqX" customClass="WeeklyViewController" customModule="StudyTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vPd-yu-X2q" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="20" y="244" width="374" height="418"/>
-                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
-                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpW-LC-n3P">
+                                <rect key="frame" x="0.0" y="44" width="414" height="956"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="twc-41-5Uw">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="956"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vPd-yu-X2q" customClass="BarChartView" customModule="Charts">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="250" id="MMg-iq-i0H"/>
+                                                </constraints>
+                                            </view>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YAA-qL-EfI">
+                                                <rect key="frame" x="0.0" y="258" width="414" height="698"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FSF-4h-JjB">
+                                                    <size key="itemSize" width="128" height="128"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WeeklyCell" id="LH3-LX-tXG" customClass="WeeklyCell" customModule="StudyTimer" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nTU-UW-get">
+                                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        </collectionViewCellContentView>
+                                                        <color key="backgroundColor" red="0.91372549020000005" green="0.33725490200000002" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </collectionViewCell>
+                                                </cells>
+                                            </collectionView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="vPd-yu-X2q" firstAttribute="centerX" secondItem="twc-41-5Uw" secondAttribute="centerX" id="FzR-ya-a9h"/>
+                                            <constraint firstItem="YAA-qL-EfI" firstAttribute="top" secondItem="vPd-yu-X2q" secondAttribute="bottom" constant="8" symbolic="YES" id="KRL-p2-5s8"/>
+                                            <constraint firstAttribute="trailing" secondItem="YAA-qL-EfI" secondAttribute="trailing" id="MYi-BJ-UXn"/>
+                                            <constraint firstItem="vPd-yu-X2q" firstAttribute="top" secondItem="twc-41-5Uw" secondAttribute="top" id="ZLA-L9-Kyk"/>
+                                            <constraint firstItem="vPd-yu-X2q" firstAttribute="leading" secondItem="twc-41-5Uw" secondAttribute="leading" id="ml3-BZ-OHs"/>
+                                            <constraint firstItem="YAA-qL-EfI" firstAttribute="leading" secondItem="twc-41-5Uw" secondAttribute="leading" id="sBL-VZ-fpJ"/>
+                                            <constraint firstAttribute="bottom" secondItem="YAA-qL-EfI" secondAttribute="bottom" id="t8m-SF-Sep"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="twc-41-5Uw" secondAttribute="trailing" id="G2r-2V-7nb"/>
+                                    <constraint firstItem="twc-41-5Uw" firstAttribute="top" secondItem="CpW-LC-n3P" secondAttribute="top" id="S1V-FN-xwo"/>
+                                    <constraint firstItem="twc-41-5Uw" firstAttribute="width" secondItem="CpW-LC-n3P" secondAttribute="width" id="Sgm-nB-EqA"/>
+                                    <constraint firstItem="twc-41-5Uw" firstAttribute="height" secondItem="CpW-LC-n3P" secondAttribute="height" priority="250" id="g0m-iW-n69"/>
+                                    <constraint firstAttribute="bottom" secondItem="twc-41-5Uw" secondAttribute="bottom" id="gwg-Vu-USz"/>
+                                    <constraint firstItem="twc-41-5Uw" firstAttribute="leading" secondItem="CpW-LC-n3P" secondAttribute="leading" id="zoK-AU-JOq"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="UhF-tY-qrT"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="AIM-JG-wk7"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vPd-yu-X2q" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="0ox-nv-Ymp"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="vPd-yu-X2q" secondAttribute="bottom" constant="200" id="3f0-3d-40E"/>
-                            <constraint firstItem="vPd-yu-X2q" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="200" id="bfI-uo-Re8"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="vPd-yu-X2q" secondAttribute="trailing" constant="20" id="ia9-tV-W9C"/>
+                            <constraint firstItem="CpW-LC-n3P" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="6Mb-n6-WJi"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="CpW-LC-n3P" secondAttribute="trailing" id="A2m-cU-Iqm"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="top" secondItem="CpW-LC-n3P" secondAttribute="top" id="e5F-Zw-TkA"/>
+                            <constraint firstItem="CpW-LC-n3P" firstAttribute="bottom" secondItem="5EZ-qb-Rvc" secondAttribute="bottom" id="wr0-dN-ckF"/>
                         </constraints>
                     </view>
+                    <size key="freeformSize" width="414" height="1000"/>
                     <connections>
                         <outlet property="barChartView" destination="vPd-yu-X2q" id="EjA-5m-ffl"/>
+                        <outlet property="collectionView" destination="YAA-qL-EfI" id="tyu-En-Fnk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

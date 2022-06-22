@@ -15,6 +15,14 @@ class WeeklyViewController: UIViewController {
     static let storyboard = "WeeklyView"
 
     @IBOutlet var barChartView: BarChartView!
+    @IBOutlet var collectionView: UICollectionView!
+
+    var dataSource: UICollectionViewDiffableDataSource<Section, Item>!
+
+    typealias Item = Int
+    enum Section {
+        case main
+    }
 
     var chartDataList = [StudyModel?]()
     var xAxisLabels: [String] = []
@@ -31,6 +39,8 @@ class WeeklyViewController: UIViewController {
         barChartView.noDataText = "데이터가 없습니다."
         barChartView.noDataFont = .systemFont(ofSize: 20)
         barChartView.noDataTextColor = .lightGray
+        
+        configureCollectionView()
     }
 
     func setWeekDays() {
@@ -70,8 +80,12 @@ class WeeklyViewController: UIViewController {
 //        chartDataSet.highlightEnabled = false
         // 줌 안되게
         barChartView.doubleTapToZoomEnabled = false
-        // 가로선 없애기
+
         barChartView.xAxis.drawGridLinesEnabled = false
+
+        barChartView.leftAxis.gridColor = Theme.supplementColor1.withAlphaComponent(0.7)
+        barChartView.leftAxis.drawAxisLineEnabled = false
+        barChartView.leftAxis.drawLabelsEnabled = false
 
         // X축 레이블 위치 조정
         barChartView.xAxis.labelPosition = .bottom
@@ -89,11 +103,55 @@ class WeeklyViewController: UIViewController {
     }
 }
 
+extension WeeklyViewController {
+    private func configureCollectionView() {
+        // ui
+        collectionView.showsVerticalScrollIndicator = false
+
+        // dataSource
+        dataSource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView, cellProvider: { collectionView, indexPath, _ in
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WeeklyCell.identifier, for: indexPath) as? WeeklyCell else {
+                return nil
+            }
+
+            return cell
+        })
+
+        // snapshot
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems([1, 2, 3, 4, 5, 6, 7, 8, 9], toSection: .main)
+        dataSource.apply(snapshot)
+
+        // layout
+        collectionView.collectionViewLayout = configureLayout()
+    }
+
+    // CollectionView Layout
+    private func configureLayout() -> UICollectionViewCompositionalLayout {
+        // item
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalWidth(0.5))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let itemSpacing: CGFloat = 5
+        item.contentInsets = NSDirectionalEdgeInsets(top: itemSpacing, leading: itemSpacing, bottom: itemSpacing, trailing: itemSpacing)
+
+        // group
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.5))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
+
+        // section
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 0, bottom: 20, trailing: 0)
+
+        return UICollectionViewCompositionalLayout(section: section)
+    }
+}
+
 extension WeeklyViewController: ChartViewDelegate {
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         let index = Int(highlight.x) // index to Int
-        
-        print(chartDataList[index])
+
+        print(chartDataList[index] ?? "empty")
     }
 }
 

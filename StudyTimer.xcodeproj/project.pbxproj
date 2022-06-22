@@ -11,6 +11,7 @@
 		0D09C3522863483B00FAE80A /* WeeklyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D09C3512863483B00FAE80A /* WeeklyModel.swift */; };
 		0D09C35428634AA900FAE80A /* StudyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D09C35328634AA900FAE80A /* StudyModel.swift */; };
 		0D1A3F332851F73800685D86 /* StopTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1A3F322851F73800685D86 /* StopTimerViewController.swift */; };
+		0D264FBB286389D200904662 /* WeeklyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D264FBA286389D200904662 /* WeeklyCell.swift */; };
 		0D28EF6A285B15B300E6AFF4 /* AuthView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D28EF69285B15B300E6AFF4 /* AuthView.storyboard */; };
 		0D28EF6C285B15C500E6AFF4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D28EF6B285B15C500E6AFF4 /* SignInViewController.swift */; };
 		0D28EF6E285B15D700E6AFF4 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D28EF6D285B15D700E6AFF4 /* SignUpViewController.swift */; };
@@ -70,6 +71,7 @@
 		0D09C3512863483B00FAE80A /* WeeklyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyModel.swift; sourceTree = "<group>"; };
 		0D09C35328634AA900FAE80A /* StudyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyModel.swift; sourceTree = "<group>"; };
 		0D1A3F322851F73800685D86 /* StopTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopTimerViewController.swift; sourceTree = "<group>"; };
+		0D264FBA286389D200904662 /* WeeklyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyCell.swift; sourceTree = "<group>"; };
 		0D28EF69285B15B300E6AFF4 /* AuthView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthView.storyboard; sourceTree = "<group>"; };
 		0D28EF6B285B15C500E6AFF4 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		0D28EF6D285B15D700E6AFF4 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				0D9D06F92852FD890072DC8D /* WeeklyViewController.swift */,
+				0D264FBA286389D200904662 /* WeeklyCell.swift */,
 			);
 			path = Weekly;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				0D1A3F332851F73800685D86 /* StopTimerViewController.swift in Sources */,
 				0DED8ADC284F670A004345F9 /* Extensions.swift in Sources */,
 				0D28EF6E285B15D700E6AFF4 /* SignUpViewController.swift in Sources */,
+				0D264FBB286389D200904662 /* WeeklyCell.swift in Sources */,
 				0D519F9528525CBE00EAED72 /* ThemeModel.swift in Sources */,
 				0DA4648B285336EC003CE149 /* DateTimeModel.swift in Sources */,
 				0D09C3522863483B00FAE80A /* WeeklyModel.swift in Sources */,

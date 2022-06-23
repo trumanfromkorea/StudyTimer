@@ -6,18 +6,29 @@
 //
 
 import Charts
+import Combine
 import FirebaseAuth
 import FirebaseFirestore
 import UIKit
+
 
 class WeeklyViewController: UIViewController {
     static let identifier = "WeeklyViewController"
     static let storyboard = "WeeklyView"
 
-    @IBOutlet var barChartView: BarChartView!
     @IBOutlet var collectionView: UICollectionView!
 
     var dataSource: UICollectionViewDiffableDataSource<Section, Item>!
+    
+    let sampleData = [
+        [1],
+        [1,2],
+        [1,2,3],
+        [1,2,3,4],
+        [1,2,3,4,5],
+        [1,2,3,4,5,6],
+        [1,2,3,4,5,6,7]
+    ]
 
     typealias Item = Int
     enum Section {
@@ -34,13 +45,7 @@ class WeeklyViewController: UIViewController {
         setWeekDays()
         getWeeklyData()
 
-        barChartView.delegate = self
-
-        barChartView.noDataText = "데이터가 없습니다."
-        barChartView.noDataFont = .systemFont(ofSize: 20)
-        barChartView.noDataTextColor = .lightGray
-        
-        configureCollectionView()
+//        configureCollectionView()
     }
 
     func setWeekDays() {
@@ -53,53 +58,6 @@ class WeeklyViewController: UIViewController {
             weekdays.append(DateModel.commonFormatter.string(from: incrementDate!))
             xAxisLabels.append(DateModel.monthDayFormatter.string(from: incrementDate!))
         }
-    }
-
-    func setChart(dataPoints: [String], values: [StudyModel?]) {
-        // 데이터 생성
-        var dataEntries: [BarChartDataEntry] = []
-
-        for i in 0 ..< dataPoints.count {
-            let dataEntry = BarChartDataEntry(x: Double(i), y: Double(values[i]?.totalTime ?? 0))
-
-            dataEntries.append(dataEntry)
-        }
-
-        let chartDataSet = BarChartDataSet(entries: dataEntries, label: "분")
-
-        // 차트 컬러
-        chartDataSet.colors = [Theme.mainColor]
-
-        // 데이터 삽입
-        let chartData = BarChartData(dataSet: chartDataSet)
-        barChartView.data = chartData
-
-        chartData.barWidth = Double(0.65)
-
-        // 선택 안되게
-//        chartDataSet.highlightEnabled = false
-        // 줌 안되게
-        barChartView.doubleTapToZoomEnabled = false
-
-        barChartView.xAxis.drawGridLinesEnabled = false
-
-        barChartView.leftAxis.gridColor = Theme.supplementColor1.withAlphaComponent(0.7)
-        barChartView.leftAxis.drawAxisLineEnabled = false
-        barChartView.leftAxis.drawLabelsEnabled = false
-
-        // X축 레이블 위치 조정
-        barChartView.xAxis.labelPosition = .bottom
-        // X축 레이블 포맷 지정
-        barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: dataPoints)
-
-        // X축 레이블 갯수 최대로 설정 (이 코드 안쓸 시 Jan Mar May 이런식으로 띄엄띄엄 조금만 나옴)
-        barChartView.xAxis.setLabelCount(dataPoints.count, force: false)
-
-        // 오른쪽 레이블 제거
-        barChartView.rightAxis.enabled = false
-
-        // 기본 애니메이션
-        barChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
     }
 }
 
@@ -117,10 +75,25 @@ extension WeeklyViewController {
             return cell
         })
 
+        // header
+        dataSource.supplementaryViewProvider = { collectionView, kind, indexPath in
+            if kind == UICollectionView.elementKindSectionHeader {
+                guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: WeeklyHeader.identifier, for: indexPath) as? WeeklyHeader else {
+                    return UICollectionReusableView()
+                }
+
+                header.setChart(dataPoints: self.xAxisLabels, values: self.chartDataList)
+
+                return header
+            } else {
+                return UICollectionReusableView()
+            }
+        }
+
         // snapshot
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
         snapshot.appendSections([.main])
-        snapshot.appendItems([1, 2, 3, 4, 5, 6, 7, 8, 9], toSection: .main)
+        snapshot.appendItems(sampleData[2], toSection: .main)
         dataSource.apply(snapshot)
 
         // layout
@@ -143,15 +116,15 @@ extension WeeklyViewController {
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 0, bottom: 20, trailing: 0)
 
+        // header
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(50.0))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top)
+        section.boundarySupplementaryItems = [header]
+
         return UICollectionViewCompositionalLayout(section: section)
-    }
-}
-
-extension WeeklyViewController: ChartViewDelegate {
-    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-        let index = Int(highlight.x) // index to Int
-
-        print(chartDataList[index] ?? "empty")
     }
 }
 
@@ -194,7 +167,8 @@ extension WeeklyViewController {
                 }
             }
 
-            self.setChart(dataPoints: self.xAxisLabels, values: self.chartDataList)
+            self.configureCollectionView()
+//            self.setChart(dataPoints: self.xAxisLabels, values: self.chartDataList)
         }
     }
 }

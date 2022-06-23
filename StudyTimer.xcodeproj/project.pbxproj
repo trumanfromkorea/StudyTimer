@@ -47,6 +47,7 @@
 		0DEF5C812861FC1C00BCC206 /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEF5C802861FC1C00BCC206 /* CircularProgressBarView.swift */; };
 		0DEF5C84286217D000BCC206 /* SettingsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DEF5C83286217D000BCC206 /* SettingsView.storyboard */; };
 		0DEF5C86286217E100BCC206 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEF5C85286217E100BCC206 /* SettingsViewController.swift */; };
+		0DF1CE712864D0180010FAF1 /* WeeklyHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF1CE702864D0180010FAF1 /* WeeklyHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		0DEF5C802861FC1C00BCC206 /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
 		0DEF5C83286217D000BCC206 /* SettingsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsView.storyboard; sourceTree = "<group>"; };
 		0DEF5C85286217E100BCC206 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		0DF1CE702864D0180010FAF1 /* WeeklyHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +284,7 @@
 			children = (
 				0D9D06F92852FD890072DC8D /* WeeklyViewController.swift */,
 				0D264FBA286389D200904662 /* WeeklyCell.swift */,
+				0DF1CE702864D0180010FAF1 /* WeeklyHeader.swift */,
 			);
 			path = Weekly;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				0D9D06FA2852FD890072DC8D /* WeeklyViewController.swift in Sources */,
 				0D08BC9F285D0F2800D34CC7 /* AuthModel.swift in Sources */,
 				0DED8AA6284F5646004345F9 /* SceneDelegate.swift in Sources */,
+				0DF1CE712864D0180010FAF1 /* WeeklyHeader.swift in Sources */,
 				0D9E06ED28503D340031AA55 /* HomeViewController.swift in Sources */,
 				0DEF5C86286217E100BCC206 /* SettingsViewController.swift in Sources */,
 			);

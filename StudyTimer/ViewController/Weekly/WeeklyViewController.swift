@@ -19,6 +19,7 @@ class WeeklyViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
 
     var dataSource: UICollectionViewDiffableDataSource<Section, Item>!
+    var collectionIndex = 6
     
     let sampleData = [
         [1],
@@ -44,8 +45,6 @@ class WeeklyViewController: UIViewController {
 
         setWeekDays()
         getWeeklyData()
-
-//        configureCollectionView()
     }
 
     func setWeekDays() {
@@ -83,6 +82,7 @@ extension WeeklyViewController {
                 }
 
                 header.setChart(dataPoints: self.xAxisLabels, values: self.chartDataList)
+                header.delegate = self
 
                 return header
             } else {
@@ -93,7 +93,7 @@ extension WeeklyViewController {
         // snapshot
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
         snapshot.appendSections([.main])
-        snapshot.appendItems(sampleData[2], toSection: .main)
+        snapshot.appendItems(sampleData[collectionIndex], toSection: .main)
         dataSource.apply(snapshot)
 
         // layout
@@ -170,5 +170,18 @@ extension WeeklyViewController {
             self.configureCollectionView()
 //            self.setChart(dataPoints: self.xAxisLabels, values: self.chartDataList)
         }
+    }
+}
+
+
+extension WeeklyViewController: WeeklyHeaderDelegate {
+    func changeIndex(index: Int) {
+        print(index)
+        collectionIndex = index
+
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(sampleData[index], toSection: .main)
+        dataSource.apply(snapshot)
     }
 }

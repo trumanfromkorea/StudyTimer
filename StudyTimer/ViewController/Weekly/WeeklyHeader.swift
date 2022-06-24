@@ -8,14 +8,20 @@
 import Charts
 import UIKit
 
+protocol WeeklyHeaderDelegate: AnyObject {
+    func changeIndex(index: Int)
+}
+
 class WeeklyHeader: UICollectionReusableView {
     static let identifier = "WeeklyHeader"
 
     @IBOutlet var barChartView: BarChartView!
-    
+
+    weak var delegate: WeeklyHeaderDelegate?
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         barChartView.delegate = self
 
         barChartView.noDataText = "데이터가 없습니다."
@@ -75,6 +81,6 @@ extension WeeklyHeader: ChartViewDelegate {
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         let index = Int(highlight.x) // index to Int
 
-//        print(chartDataList[index] ?? "empty")
+        delegate?.changeIndex(index: index)
     }
 }

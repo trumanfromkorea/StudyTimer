@@ -16,6 +16,7 @@ class WeeklyHeader: UICollectionReusableView {
     static let identifier = "WeeklyHeader"
 
     @IBOutlet var barChartView: BarChartView!
+    @IBOutlet var dateLabel: UILabel!
 
     weak var delegate: WeeklyHeaderDelegate?
 
@@ -29,12 +30,22 @@ class WeeklyHeader: UICollectionReusableView {
         barChartView.noDataTextColor = .lightGray
     }
 
+    func configure(_ dateString: String?) {
+        guard let dateString = dateString else {
+            dateLabel.text = " "
+            return
+        }
+
+        let date = DateModel.commonFormatter.date(from: dateString)!
+        dateLabel.text = DateModel.koreanMonthDayFormatter.string(from: date)
+    }
+
     func setChart(dataPoints: [String], values: [StudyModel?]) {
         // 데이터 생성
         var dataEntries: [BarChartDataEntry] = []
 
         for i in 0 ..< dataPoints.count {
-            let dataEntry = BarChartDataEntry(x: Double(i), y: Double(values[i]?.totalTime ?? 0))
+            let dataEntry = BarChartDataEntry(x: Double(i), y: Double(values[i]?.totalTime ?? 0) / 60)
 
             dataEntries.append(dataEntry)
         }

@@ -63,7 +63,7 @@ class StopTimerViewController: UIViewController {
             whenDateIsDifferent()
         } else {
             let dateString = dateFormatter.string(from: Date())
-            storeStudyInfo(dateString: "2022-06-10", startTime: startTime, endTime: endTime, studyTime: studyTime, showPopup: true)
+            storeStudyInfo(dateString: dateString, startTime: startTime, endTime: endTime, studyTime: studyTime, showPopup: true)
         }
     }
 

@@ -53,6 +53,13 @@ struct DateModel {
         formatter.dateFormat = "YYYY년 M월 d일 (eee)"
         return formatter
     }
+    
+    static var koreanMonthDayFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko")
+        formatter.dateFormat = "M월 d일 (eee)"
+        return formatter
+    }
 
     static var monthDayFormatter: DateFormatter {
         let formatter = DateFormatter()

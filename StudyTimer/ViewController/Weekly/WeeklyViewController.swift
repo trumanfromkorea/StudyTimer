@@ -11,7 +11,6 @@ import FirebaseAuth
 import FirebaseFirestore
 import UIKit
 
-
 class WeeklyViewController: UIViewController {
     static let identifier = "WeeklyViewController"
     static let storyboard = "WeeklyView"
@@ -19,19 +18,10 @@ class WeeklyViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
 
     var dataSource: UICollectionViewDiffableDataSource<Section, Item>!
+    var header: WeeklyHeader!
     var collectionIndex = 6
-    
-    let sampleData = [
-        [1],
-        [1,2],
-        [1,2,3],
-        [1,2,3,4],
-        [1,2,3,4,5],
-        [1,2,3,4,5,6],
-        [1,2,3,4,5,6,7]
-    ]
 
-    typealias Item = Int
+    typealias Item = StudyDetails
     enum Section {
         case main
     }
@@ -66,10 +56,12 @@ extension WeeklyViewController {
         collectionView.showsVerticalScrollIndicator = false
 
         // dataSource
-        dataSource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView, cellProvider: { collectionView, indexPath, _ in
+        dataSource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WeeklyCell.identifier, for: indexPath) as? WeeklyCell else {
                 return nil
             }
+
+            cell.configure(item)
 
             return cell
         })
@@ -81,36 +73,46 @@ extension WeeklyViewController {
                     return UICollectionReusableView()
                 }
 
-                header.setChart(dataPoints: self.xAxisLabels, values: self.chartDataList)
-                header.delegate = self
+                self.header = header
 
-                return header
+                self.header.configure(self.chartDataList[self.collectionIndex]?.dateString)
+                self.header.setChart(dataPoints: self.xAxisLabels, values: self.chartDataList)
+                self.header.delegate = self
+
+                return self.header
             } else {
                 return UICollectionReusableView()
             }
         }
 
         // snapshot
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
-        snapshot.appendSections([.main])
-        snapshot.appendItems(sampleData[collectionIndex], toSection: .main)
-        dataSource.apply(snapshot)
+        configureSnapshot()
 
         // layout
         collectionView.collectionViewLayout = configureLayout()
+
+        // scroll to top
+        collectionView.setContentOffset(.zero, animated: true)
+    }
+    
+    private func configureSnapshot(){
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(chartDataList[collectionIndex]?.details ?? [StudyDetails](), toSection: .main)
+        dataSource.apply(snapshot)
     }
 
     // CollectionView Layout
     private func configureLayout() -> UICollectionViewCompositionalLayout {
         // item
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalWidth(0.5))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.5))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         let itemSpacing: CGFloat = 5
-        item.contentInsets = NSDirectionalEdgeInsets(top: itemSpacing, leading: itemSpacing, bottom: itemSpacing, trailing: itemSpacing)
+        item.contentInsets = NSDirectionalEdgeInsets(top: itemSpacing, leading: 0, bottom: itemSpacing, trailing: 0)
 
         // group
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.5))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
 
         // section
         let section = NSCollectionLayoutSection(group: group)
@@ -161,27 +163,26 @@ extension WeeklyViewController {
                 }
 
                 if result.isEmpty {
-                    self.chartDataList.append(nil)
+                    self.chartDataList.append(
+                        StudyModel(dateString: weekday, totalTime: 0, details: [])
+                    )
                 } else {
                     self.chartDataList += result
                 }
             }
 
             self.configureCollectionView()
-//            self.setChart(dataPoints: self.xAxisLabels, values: self.chartDataList)
         }
     }
 }
 
-
 extension WeeklyViewController: WeeklyHeaderDelegate {
     func changeIndex(index: Int) {
-        print(index)
         collectionIndex = index
 
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
-        snapshot.appendSections([.main])
-        snapshot.appendItems(sampleData[index], toSection: .main)
-        dataSource.apply(snapshot)
+        header.configure(chartDataList[collectionIndex]?.dateString)
+
+        // snapshot
+        configureSnapshot()
     }
 }

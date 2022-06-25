@@ -23,7 +23,7 @@ class WeeklyCell: UICollectionViewCell {
         layer.cornerRadius = 10
         
         stackView.setCustomSpacing(5, after: contents)
-        stackView.setCustomSpacing(15, after: contentsLabel)
+        stackView.setCustomSpacing(10, after: contentsLabel)
         stackView.setCustomSpacing(5, after: studyTime)
         stackView.setCustomSpacing(5, after: studyTimeLabel)
     }

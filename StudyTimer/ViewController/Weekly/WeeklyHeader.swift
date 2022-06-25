@@ -17,7 +17,8 @@ class WeeklyHeader: UICollectionReusableView {
 
     @IBOutlet var barChartView: BarChartView!
     @IBOutlet var dateLabel: UILabel!
-
+    @IBOutlet weak var isEmptyLabel: UILabel!
+    
     weak var delegate: WeeklyHeaderDelegate?
 
     override func awakeFromNib() {
@@ -30,14 +31,16 @@ class WeeklyHeader: UICollectionReusableView {
         barChartView.noDataTextColor = .lightGray
     }
 
-    func configure(_ dateString: String?) {
+    func configure(_ dateString: String?, _ isEmpty: Bool) {
         guard let dateString = dateString else {
             dateLabel.text = " "
             return
         }
 
         let date = DateModel.commonFormatter.date(from: dateString)!
-        dateLabel.text = DateModel.koreanMonthDayFormatter.string(from: date)
+        dateLabel.text = DateModel.koreanMonthDayFormatter.string(from: date) + " 의 집중시간"
+        
+        isEmptyLabel.text = isEmpty ? "해당 날짜의 집중시간이 존재하지 않습니다." : " "
     }
 
     func setChart(dataPoints: [String], values: [StudyModel?]) {

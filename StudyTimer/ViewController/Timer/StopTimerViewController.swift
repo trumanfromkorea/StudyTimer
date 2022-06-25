@@ -13,8 +13,6 @@ class StopTimerViewController: UIViewController {
     static let identifier = "StopTimerViewController"
     static let storyboard = "StopTimerView"
 
-    let ratingList = ["😞", "😊", "😆"]
-
     var ratingIndex: Int?
     var studyTime = 0
     var startTime = 0
@@ -30,7 +28,7 @@ class StopTimerViewController: UIViewController {
     }
 
     var dataSource: UICollectionViewDiffableDataSource<Section, Item>!
-    typealias Item = String
+    typealias Item = Int
     enum Section {
         case main
     }
@@ -125,7 +123,6 @@ class StopTimerViewController: UIViewController {
                     }
                 }
             }
-
     }
 
     private func completePopUp() {
@@ -164,24 +161,27 @@ extension StopTimerViewController: UICollectionViewDelegate {
             guard let cell = self.ratingCollectionView.dequeueReusableCell(withReuseIdentifier: RatingCell.identifier, for: indexPath) as? RatingCell else {
                 return nil
             }
-            cell.configure(itemIdentifier)
+            cell.configure("rating_\(indexPath.item)", self.ratingCollectionView.frame.size.width * 0.3)
             return cell
         })
 
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
         snapshot.appendSections([.main])
-        snapshot.appendItems(ratingList, toSection: .main)
+        snapshot.appendItems([0, 1, 2], toSection: .main)
         dataSource.apply(snapshot)
 
         ratingCollectionView.collectionViewLayout = layout()
     }
 
     private func layout() -> UICollectionViewCompositionalLayout {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.33), heightDimension: .fractionalHeight(1))
+        
+        let width = ratingCollectionView.frame.size.width
+        
+        let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(width * 0.3), heightDimension: .absolute(width * 0.3))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: width * 0.0125, bottom: 0, trailing: width * 0.0125)
 
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.33))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(width * 0.3))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 3)
 
         let section = NSCollectionLayoutSection(group: group)

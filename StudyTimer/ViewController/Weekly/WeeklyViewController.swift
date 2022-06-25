@@ -75,7 +75,7 @@ extension WeeklyViewController {
 
                 self.header = header
 
-                self.header.configure(self.chartDataList[self.collectionIndex]?.dateString)
+                self.header.configure(self.chartDataList[self.collectionIndex]!.dateString, self.chartDataList[self.collectionIndex]!.details.isEmpty)
                 self.header.setChart(dataPoints: self.xAxisLabels, values: self.chartDataList)
                 self.header.delegate = self
 
@@ -94,8 +94,8 @@ extension WeeklyViewController {
         // scroll to top
         collectionView.setContentOffset(.zero, animated: true)
     }
-    
-    private func configureSnapshot(){
+
+    private func configureSnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
         snapshot.appendSections([.main])
         snapshot.appendItems(chartDataList[collectionIndex]?.details ?? [StudyDetails](), toSection: .main)
@@ -105,18 +105,18 @@ extension WeeklyViewController {
     // CollectionView Layout
     private func configureLayout() -> UICollectionViewCompositionalLayout {
         // item
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.5))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(150))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        let itemSpacing: CGFloat = 5
-        item.contentInsets = NSDirectionalEdgeInsets(top: itemSpacing, leading: 0, bottom: itemSpacing, trailing: 0)
 
+        
         // group
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.5))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(150))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
 
         // section
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 0, bottom: 20, trailing: 0)
+        section.interGroupSpacing = 10
 
         // header
         let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(50.0))
@@ -180,8 +180,7 @@ extension WeeklyViewController: WeeklyHeaderDelegate {
     func changeIndex(index: Int) {
         collectionIndex = index
 
-        header.configure(chartDataList[collectionIndex]?.dateString)
-
+        header.configure(chartDataList[collectionIndex]!.dateString, chartDataList[collectionIndex]!.details.isEmpty)
         // snapshot
         configureSnapshot()
     }

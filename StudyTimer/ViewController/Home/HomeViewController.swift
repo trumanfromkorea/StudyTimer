@@ -84,7 +84,7 @@ class HomeViewController: UIViewController {
 
         let vc = storyboard.instantiateViewController(withIdentifier: WeeklyViewController.identifier) as! WeeklyViewController
 
-        vc.title = "Weekly View"
+        vc.title = "주간 기록"
 
         navigationController?.pushViewController(vc, animated: true)
     }

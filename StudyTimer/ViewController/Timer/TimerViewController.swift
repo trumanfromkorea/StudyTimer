@@ -85,7 +85,7 @@ class TimerViewController: UIViewController {
 
     // 10분 이내 종료 시 기록 불가능
     func unreachedMinimumTime() {
-        let sheet = UIAlertController(title: "정지", message: "10분 이내 종료 시 공부시간이 기록되지 않습니다. 정말로 종료하시겠습니까?", preferredStyle: .alert)
+        let sheet = UIAlertController(title: "정지", message: "10분 이내 종료 시 집중시간이 기록되지 않습니다. 정말로 종료하시겠습니까?", preferredStyle: .alert)
         sheet.addAction(UIAlertAction(title: "아니오", style: .default))
         sheet.addAction(UIAlertAction(title: "예", style: .default, handler: { _ in
             self.timer?.invalidate()

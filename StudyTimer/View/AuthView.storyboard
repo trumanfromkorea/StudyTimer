@@ -16,14 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Study With Me" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OkB-oD-pCh">
-                                <rect key="frame" x="151" y="216.5" width="112" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aq1-YB-lEU">
-                                <rect key="frame" x="20" y="352.5" width="374" height="201"/>
+                                <rect key="frame" x="20" y="382.5" width="374" height="201"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이메일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAm-CH-B4d">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="21"/>
@@ -88,7 +82,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQC-Db-QaO">
-                                <rect key="frame" x="20" y="583.5" width="374" height="50"/>
+                                <rect key="frame" x="20" y="613.5" width="374" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Lw7-B5-ugd"/>
                                 </constraints>
@@ -101,7 +95,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Twk-Un-Epw">
-                                <rect key="frame" x="141" y="648.5" width="132" height="32"/>
+                                <rect key="frame" x="141" y="678.5" width="132" height="32"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="이메일로 회원가입">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
@@ -110,27 +104,24 @@
                                     <action selector="onTappedSignUpButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="pLl-py-V9u"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SWIM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USU-b7-wfZ">
-                                <rect key="frame" x="134.5" y="242.5" width="145" height="60"/>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="50"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_basic" translatesAutoresizingMaskIntoConstraints="NO" id="IIx-qb-h02">
+                                <rect key="frame" x="30" y="144" width="354" height="188.5"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="hQC-Db-QaO" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="2f3-AZ-ovK"/>
+                            <constraint firstItem="IIx-qb-h02" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="100" id="7Oc-PY-ojD"/>
+                            <constraint firstItem="aq1-YB-lEU" firstAttribute="top" secondItem="IIx-qb-h02" secondAttribute="bottom" constant="50" id="KnS-cQ-2vr"/>
                             <constraint firstItem="hQC-Db-QaO" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="LVK-Xx-oHH"/>
-                            <constraint firstItem="aq1-YB-lEU" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="Nhh-Td-zlB"/>
-                            <constraint firstItem="aq1-YB-lEU" firstAttribute="top" secondItem="USU-b7-wfZ" secondAttribute="bottom" constant="50" id="S5Z-iH-l4D"/>
+                            <constraint firstItem="aq1-YB-lEU" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" constant="30" id="Nhh-Td-zlB"/>
                             <constraint firstItem="aq1-YB-lEU" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="T4y-9d-puk"/>
-                            <constraint firstItem="USU-b7-wfZ" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="WqM-Cz-a8p"/>
-                            <constraint firstItem="USU-b7-wfZ" firstAttribute="top" secondItem="OkB-oD-pCh" secondAttribute="bottom" constant="5" id="jN8-Yf-hgP"/>
+                            <constraint firstItem="IIx-qb-h02" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="cqv-bD-5zu"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="IIx-qb-h02" secondAttribute="trailing" constant="30" id="haf-Fb-7vh"/>
                             <constraint firstItem="hQC-Db-QaO" firstAttribute="top" secondItem="aq1-YB-lEU" secondAttribute="bottom" constant="30" id="mSB-Oa-Z4d"/>
                             <constraint firstItem="Twk-Un-Epw" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="qkU-p9-eEF"/>
                             <constraint firstItem="aq1-YB-lEU" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="qtU-7v-cqf"/>
-                            <constraint firstItem="OkB-oD-pCh" firstAttribute="centerX" secondItem="USU-b7-wfZ" secondAttribute="centerX" id="sRl-ba-5sj"/>
                             <constraint firstItem="Twk-Un-Epw" firstAttribute="top" secondItem="hQC-Db-QaO" secondAttribute="bottom" constant="15" id="uVR-zk-0Cb"/>
                         </constraints>
                     </view>
@@ -309,6 +300,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="logo_basic" width="2475" height="1020"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

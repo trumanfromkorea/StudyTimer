@@ -10,12 +10,12 @@ import UIKit
 class RatingCell: UICollectionViewCell {
     static let identifier = "RatingCell"
 
-    @IBOutlet var emojiLabel: UILabel!
+    @IBOutlet var ratingImageView: UIImageView!
 
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                contentView.backgroundColor = .gray
+                contentView.backgroundColor = UIColor(hex: "#dedede")
             } else {
                 contentView.backgroundColor = .white
             }
@@ -24,20 +24,10 @@ class RatingCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
-        let cornerRadius = frame.size.width / 2
-
-        // Apply rounded corners to contentView
-        contentView.layer.cornerRadius = cornerRadius
-        contentView.layer.masksToBounds = true
-
-        // Set masks to bounds to false to avoid the shadow
-        // from being clipped to the corner radius
-        layer.cornerRadius = cornerRadius
-        layer.masksToBounds = false
     }
 
-    func configure(_ label: String) {
-        emojiLabel.text = label
+    func configure(_ imageName: String, _ width: CGFloat) {
+        ratingImageView.image = UIImage(named: imageName)
+        layer.cornerRadius = width / 2
     }
 }

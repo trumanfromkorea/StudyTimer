@@ -112,6 +112,7 @@ extension HomeViewController {
                     let studyTime = document.data()!["totalTime"]! as! Int
                     self.studyTimeLabel.text = TimeModel.getTimeStringFromSeconds(seconds: studyTime)
                 } else {
+                    self.studyTimeLabel.text = "0분"
                     print("no studyTime")
                 }
             }

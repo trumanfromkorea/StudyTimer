@@ -10,156 +10,193 @@
     </dependencies>
     <scenes>
         <!--Weekly View Controller-->
-        <scene sceneID="s0d-6b-0kx">
+        <scene sceneID="CB7-rA-ni4">
             <objects>
-                <viewController storyboardIdentifier="WeeklyViewController" id="Y6W-OH-hqX" customClass="WeeklyViewController" customModule="StudyTimer" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                <viewController storyboardIdentifier="WeeklyViewController" id="lQj-7Q-2b5" customClass="WeeklyViewController" customModule="StudyTimer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Oax-7g-iWC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YAA-qL-EfI">
-                                <rect key="frame" x="20" y="44" width="374" height="852"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FSF-4h-JjB">
-                                    <size key="itemSize" width="379" height="140"/>
-                                    <size key="headerReferenceSize" width="50" height="346"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WeeklyCell" id="LH3-LX-tXG" customClass="WeeklyCell" customModule="StudyTimer" customModuleProvider="target">
-                                        <rect key="frame" x="-2.5" y="346" width="379" height="140"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nTU-UW-get">
-                                            <rect key="frame" x="0.0" y="0.0" width="379" height="140"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Hbz-0R-cy8">
-                                                    <rect key="frame" x="20" y="20" width="239" height="100"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="집중내용" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXm-7l-14R">
-                                                            <rect key="frame" x="0.0" y="0.0" width="239" height="20"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                            <color key="textColor" red="0.34509803921568627" green="0.45490196078431372" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사이드 프로젝트 구상" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="87I-gb-IGY">
-                                                            <rect key="frame" x="0.0" y="20" width="239" height="20"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="집중시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2W-AP-2XH">
-                                                            <rect key="frame" x="0.0" y="40" width="239" height="20"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                            <color key="textColor" red="0.34509803921568627" green="0.45490196078431372" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2시간 30분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGE-Ir-IHC">
-                                                            <rect key="frame" x="0.0" y="60" width="239" height="20"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="09:00 ~ 13:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGG-9O-LhE">
-                                                            <rect key="frame" x="0.0" y="80" width="239" height="20"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k73-H9-Y8A">
-                                                    <rect key="frame" x="269" y="20" width="100" height="100"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="BH0-F4-fpB"/>
-                                                        <constraint firstAttribute="width" secondItem="k73-H9-Y8A" secondAttribute="height" multiplier="1:1" id="qq5-he-J7P"/>
-                                                    </constraints>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="k73-H9-Y8A" firstAttribute="leading" secondItem="Hbz-0R-cy8" secondAttribute="trailing" constant="10" id="2yv-3d-bsW"/>
-                                                <constraint firstAttribute="trailing" secondItem="k73-H9-Y8A" secondAttribute="trailing" constant="10" id="MOC-DQ-ASg"/>
-                                                <constraint firstItem="Hbz-0R-cy8" firstAttribute="leading" secondItem="nTU-UW-get" secondAttribute="leading" constant="20" id="Nal-Cv-dPM"/>
-                                                <constraint firstItem="Hbz-0R-cy8" firstAttribute="centerY" secondItem="nTU-UW-get" secondAttribute="centerY" id="b6e-MC-zmV"/>
-                                                <constraint firstItem="Hbz-0R-cy8" firstAttribute="top" secondItem="nTU-UW-get" secondAttribute="top" constant="20" id="nBk-0U-2rK"/>
-                                                <constraint firstItem="k73-H9-Y8A" firstAttribute="top" secondItem="nTU-UW-get" secondAttribute="top" constant="20" id="y0P-Ch-eie"/>
-                                                <constraint firstItem="k73-H9-Y8A" firstAttribute="centerY" secondItem="nTU-UW-get" secondAttribute="centerY" id="yHX-UE-ak7"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
-                                        <size key="customSize" width="379" height="140"/>
-                                        <connections>
-                                            <outlet property="contents" destination="lXm-7l-14R" id="7jM-aU-Nzo"/>
-                                            <outlet property="contentsLabel" destination="87I-gb-IGY" id="VXO-nf-gbq"/>
-                                            <outlet property="ratingImage" destination="k73-H9-Y8A" id="hml-ck-l6u"/>
-                                            <outlet property="stackView" destination="Hbz-0R-cy8" id="ATf-5a-rk9"/>
-                                            <outlet property="studyPeriodLabel" destination="vGG-9O-LhE" id="Sce-fX-qUc"/>
-                                            <outlet property="studyTime" destination="h2W-AP-2XH" id="vsc-r0-C7n"/>
-                                            <outlet property="studyTimeLabel" destination="fGE-Ir-IHC" id="Fr7-yO-9ti"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WeeklyHeader" id="hRg-gy-ZHj" customClass="WeeklyHeader" customModule="StudyTimer" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="346"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vPd-yu-X2q" customClass="BarChartView" customModule="Charts">
-                                            <rect key="frame" x="0.0" y="20" width="374" height="250"/>
-                                            <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="250" id="MMg-iq-i0H"/>
-                                            </constraints>
-                                        </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6월 21일 (수) 의 집중시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o0g-DU-02h">
-                                            <rect key="frame" x="10" y="295" width="354" height="24"/>
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="해당 날짜의 집중시간이 존재하지 않습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wam-Hk-IzL">
-                                            <rect key="frame" x="10" y="324" width="354" height="19.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" systemColor="secondaryLabelColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="o0g-DU-02h" firstAttribute="leading" secondItem="hRg-gy-ZHj" secondAttribute="leading" constant="10" id="2aV-dB-eyR"/>
-                                        <constraint firstItem="o0g-DU-02h" firstAttribute="top" secondItem="vPd-yu-X2q" secondAttribute="bottom" constant="25" id="7B5-HY-Awf"/>
-                                        <constraint firstItem="Wam-Hk-IzL" firstAttribute="trailing" secondItem="o0g-DU-02h" secondAttribute="trailing" id="GNO-gm-0Bj"/>
-                                        <constraint firstItem="vPd-yu-X2q" firstAttribute="top" secondItem="hRg-gy-ZHj" secondAttribute="top" constant="20" id="HHu-9K-mh8"/>
-                                        <constraint firstAttribute="bottom" secondItem="Wam-Hk-IzL" secondAttribute="bottom" constant="2.5" id="NZE-gZ-eDQ"/>
-                                        <constraint firstAttribute="trailing" secondItem="vPd-yu-X2q" secondAttribute="trailing" id="Vtr-8R-EDg"/>
-                                        <constraint firstAttribute="trailing" secondItem="o0g-DU-02h" secondAttribute="trailing" constant="10" id="dCH-0M-vV2"/>
-                                        <constraint firstItem="Wam-Hk-IzL" firstAttribute="top" secondItem="o0g-DU-02h" secondAttribute="bottom" constant="5" id="gns-cZ-Mt0"/>
-                                        <constraint firstItem="vPd-yu-X2q" firstAttribute="leading" secondItem="hRg-gy-ZHj" secondAttribute="leading" id="hCq-xl-mUs"/>
-                                        <constraint firstItem="Wam-Hk-IzL" firstAttribute="leading" secondItem="o0g-DU-02h" secondAttribute="leading" id="mm9-N5-VBh"/>
-                                    </constraints>
-                                    <connections>
-                                        <outlet property="barChartView" destination="vPd-yu-X2q" id="MXz-R5-Evn"/>
-                                        <outlet property="dateLabel" destination="o0g-DU-02h" id="Dkn-x5-1Jh"/>
-                                        <outlet property="isEmptyLabel" destination="Wam-Hk-IzL" id="xhE-Bl-hFu"/>
-                                    </connections>
-                                </collectionReusableView>
-                            </collectionView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uJG-wj-arh">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U1B-hr-aB2">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cWP-KG-Lxg">
+                                                <rect key="frame" x="20" y="0.0" width="374" height="400"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xLU-ml-SaN" customClass="BarChartView" customModule="Charts">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="250"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="250" id="pYR-4C-qY1"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XOR-rT-rMr">
+                                                        <rect key="frame" x="0.0" y="250" width="374" height="150"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="150" id="Fco-96-exb"/>
+                                                        </constraints>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WVB-yv-wvg">
+                                                            <size key="itemSize" width="414" height="150"/>
+                                                            <size key="headerReferenceSize" width="50" height="65"/>
+                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        </collectionViewFlowLayout>
+                                                        <cells>
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WeeklyCell" id="oVA-tK-Ae5" customClass="WeeklyCell" customModule="StudyTimer" customModuleProvider="target">
+                                                                <rect key="frame" x="-20" y="65" width="414" height="150"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Gac-Rc-Ol7">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <subviews>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WlO-gn-POr">
+                                                                            <rect key="frame" x="304" y="25" width="100" height="100"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="100" id="7bP-ul-xQr"/>
+                                                                                <constraint firstAttribute="width" constant="100" id="Gvx-fl-H1N"/>
+                                                                            </constraints>
+                                                                        </imageView>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SuF-mg-LXy">
+                                                                            <rect key="frame" x="16" y="30.5" width="141" height="89"/>
+                                                                            <subviews>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="집중내용" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThP-Dh-QKT">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="141" height="16"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                                    <color key="textColor" red="0.34509803919999998" green="0.4549019608" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사이드 프로젝트 구성" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQ7-Wp-Vv6">
+                                                                                    <rect key="frame" x="0.0" y="16" width="141" height="20.5"/>
+                                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="집중시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICm-bP-wnT">
+                                                                                    <rect key="frame" x="0.0" y="36.5" width="141" height="16"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                                    <color key="textColor" red="0.34509803919999998" green="0.4549019608" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2시간 39분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Dt-YO-btp">
+                                                                                    <rect key="frame" x="0.0" y="52.5" width="141" height="20.5"/>
+                                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="09:00 ~ 11:39" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zdz-mX-HfG">
+                                                                                    <rect key="frame" x="0.0" y="73" width="141" height="16"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                            </subviews>
+                                                                        </stackView>
+                                                                    </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="trailing" secondItem="WlO-gn-POr" secondAttribute="trailing" constant="10" id="2sm-cM-SsC"/>
+                                                                        <constraint firstItem="SuF-mg-LXy" firstAttribute="centerY" secondItem="Gac-Rc-Ol7" secondAttribute="centerY" id="84N-zs-3WA"/>
+                                                                        <constraint firstItem="SuF-mg-LXy" firstAttribute="leading" secondItem="Gac-Rc-Ol7" secondAttribute="leading" constant="16" id="8OS-tp-M8e"/>
+                                                                        <constraint firstItem="WlO-gn-POr" firstAttribute="centerY" secondItem="Gac-Rc-Ol7" secondAttribute="centerY" id="bNT-Jb-nM5"/>
+                                                                        <constraint firstItem="WlO-gn-POr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="SuF-mg-LXy" secondAttribute="trailing" constant="10" id="v2F-Gf-m8H"/>
+                                                                    </constraints>
+                                                                </collectionViewCellContentView>
+                                                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                                                <size key="customSize" width="414" height="150"/>
+                                                                <connections>
+                                                                    <outlet property="contents" destination="ThP-Dh-QKT" id="0sJ-3U-qRg"/>
+                                                                    <outlet property="contentsLabel" destination="SQ7-Wp-Vv6" id="lu1-VW-4cZ"/>
+                                                                    <outlet property="ratingImage" destination="WlO-gn-POr" id="rQs-CG-opT"/>
+                                                                    <outlet property="stackView" destination="SuF-mg-LXy" id="qLT-wC-dCm"/>
+                                                                    <outlet property="studyPeriodLabel" destination="Zdz-mX-HfG" id="YiR-Fl-djZ"/>
+                                                                    <outlet property="studyTime" destination="ICm-bP-wnT" id="tt2-nO-iBH"/>
+                                                                    <outlet property="studyTimeLabel" destination="5Dt-YO-btp" id="S4m-57-g99"/>
+                                                                </connections>
+                                                            </collectionViewCell>
+                                                        </cells>
+                                                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WeeklyHeader" id="O1P-xI-Scc" customClass="WeeklyHeader" customModule="StudyTimer" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="65"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5월 24일 (월) 의 집중신간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0o-yV-m6I">
+                                                                    <rect key="frame" x="10" y="8" width="354" height="21.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="해당 날짜의 집중시간이 존재하지 않습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUe-oF-mlR">
+                                                                    <rect key="frame" x="10" y="38.5" width="354" height="18"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="u0o-yV-m6I" secondAttribute="trailing" constant="10" id="2DB-Uq-WxE"/>
+                                                                <constraint firstItem="u0o-yV-m6I" firstAttribute="leading" secondItem="O1P-xI-Scc" secondAttribute="leading" constant="10" id="BfW-6l-cdD"/>
+                                                                <constraint firstItem="LUe-oF-mlR" firstAttribute="trailing" secondItem="u0o-yV-m6I" secondAttribute="trailing" id="F1z-dL-dWB"/>
+                                                                <constraint firstItem="LUe-oF-mlR" firstAttribute="leading" secondItem="u0o-yV-m6I" secondAttribute="leading" id="ObF-Pd-3af"/>
+                                                                <constraint firstItem="LUe-oF-mlR" firstAttribute="top" secondItem="u0o-yV-m6I" secondAttribute="bottom" constant="9" id="YdG-dK-725"/>
+                                                                <constraint firstItem="u0o-yV-m6I" firstAttribute="top" secondItem="O1P-xI-Scc" secondAttribute="top" constant="8" id="hhJ-ak-J3G"/>
+                                                                <constraint firstAttribute="bottom" secondItem="LUe-oF-mlR" secondAttribute="bottom" constant="8.5" id="iHC-wj-8h5"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="dateLabel" destination="u0o-yV-m6I" id="dA3-SZ-0hq"/>
+                                                                <outlet property="isEmptyLabel" destination="LUe-oF-mlR" id="m67-8C-RpR"/>
+                                                            </connections>
+                                                        </collectionReusableView>
+                                                    </collectionView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="XOR-rT-rMr" firstAttribute="leading" secondItem="cWP-KG-Lxg" secondAttribute="leading" id="0Lb-63-haC"/>
+                                                    <constraint firstItem="xLU-ml-SaN" firstAttribute="top" secondItem="cWP-KG-Lxg" secondAttribute="top" id="3F1-jV-CAy"/>
+                                                    <constraint firstAttribute="trailing" secondItem="XOR-rT-rMr" secondAttribute="trailing" id="F1M-Y2-CpW"/>
+                                                    <constraint firstAttribute="trailing" secondItem="xLU-ml-SaN" secondAttribute="trailing" id="oKY-FM-Hz5"/>
+                                                    <constraint firstItem="xLU-ml-SaN" firstAttribute="leading" secondItem="cWP-KG-Lxg" secondAttribute="leading" id="zxZ-zF-oHv"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="cWP-KG-Lxg" firstAttribute="top" secondItem="U1B-hr-aB2" secondAttribute="top" id="34V-lw-mby"/>
+                                            <constraint firstItem="cWP-KG-Lxg" firstAttribute="leading" secondItem="U1B-hr-aB2" secondAttribute="leading" constant="20" id="3OB-Ae-99o"/>
+                                            <constraint firstAttribute="trailing" secondItem="cWP-KG-Lxg" secondAttribute="trailing" constant="20" id="AGr-h2-Wc3"/>
+                                            <constraint firstAttribute="bottom" secondItem="cWP-KG-Lxg" secondAttribute="bottom" id="YLd-MO-ySL"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="U1B-hr-aB2" secondAttribute="bottom" id="MA6-1R-Grp"/>
+                                    <constraint firstAttribute="trailing" secondItem="U1B-hr-aB2" secondAttribute="trailing" id="MPq-yu-Q2B"/>
+                                    <constraint firstItem="U1B-hr-aB2" firstAttribute="leading" secondItem="uJG-wj-arh" secondAttribute="leading" id="gTN-b3-DK3"/>
+                                    <constraint firstItem="U1B-hr-aB2" firstAttribute="width" secondItem="uJG-wj-arh" secondAttribute="width" id="gtJ-jJ-1Zu"/>
+                                    <constraint firstItem="U1B-hr-aB2" firstAttribute="top" secondItem="uJG-wj-arh" secondAttribute="top" id="noX-cE-iTR"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="H4F-Dn-pEE"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="0HR-9x-eOn"/>
+                            </scrollView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <viewLayoutGuide key="safeArea" id="i9n-El-lGR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="YAA-qL-EfI" secondAttribute="trailing" constant="20" id="MFX-la-S2r"/>
-                            <constraint firstItem="YAA-qL-EfI" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="amz-fJ-p8o"/>
-                            <constraint firstItem="YAA-qL-EfI" firstAttribute="bottom" secondItem="5EZ-qb-Rvc" secondAttribute="bottom" id="nGH-zo-97s"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="top" secondItem="YAA-qL-EfI" secondAttribute="top" id="rt8-fR-zlu"/>
+                            <constraint firstAttribute="top" secondItem="uJG-wj-arh" secondAttribute="top" id="LAb-g6-3sc"/>
+                            <constraint firstItem="uJG-wj-arh" firstAttribute="leading" secondItem="i9n-El-lGR" secondAttribute="leading" id="WJm-lC-EyK"/>
+                            <constraint firstItem="uJG-wj-arh" firstAttribute="bottom" secondItem="Oax-7g-iWC" secondAttribute="bottom" id="dpK-GX-OCG"/>
+                            <constraint firstItem="i9n-El-lGR" firstAttribute="trailing" secondItem="uJG-wj-arh" secondAttribute="trailing" id="jeP-5m-2zc"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="YAA-qL-EfI" id="tyu-En-Fnk"/>
+                        <outlet property="barChartView" destination="xLU-ml-SaN" id="PJ4-pU-d3f"/>
+                        <outlet property="collectionView" destination="XOR-rT-rMr" id="bjh-J6-JOB"/>
+                        <outlet property="collectionViewHeight" destination="Fco-96-exb" id="DvW-qe-R7f"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hh4-rD-W1h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="24.637681159420293" y="115.84821428571428"/>
+            <point key="canvasLocation" x="728.98550724637687" y="115.84821428571428"/>
         </scene>
     </scenes>
     <resources>

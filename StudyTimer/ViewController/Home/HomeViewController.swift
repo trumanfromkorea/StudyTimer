@@ -20,21 +20,6 @@ class HomeViewController: UIViewController {
     @IBOutlet var weeklyView: UIView!
     @IBOutlet var calendarView: UIView!
 
-    var dateFormatter: DateFormatter {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "ko")
-        formatter.dateFormat = "YYYY-MM-dd"
-
-        return formatter
-    }
-    
-    var koreanDateFormatter: DateFormatter {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "ko")
-        formatter.dateFormat = "YYYY년 M월 d일 (eee)"
-        return formatter
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,7 +28,7 @@ class HomeViewController: UIViewController {
         weeklyView.layer.cornerRadius = 10
         calendarView.layer.cornerRadius = 10
         
-        dateLabel.text = koreanDateFormatter.string(from: Date())
+        dateLabel.text = DateModel.koreanFormatter.string(from: Date())
 
         configureTouchEvents()
     }
@@ -104,7 +89,7 @@ extension HomeViewController {
     private func getStudyTime() {
         let db = Firestore.firestore()
         let uid = Auth.auth().currentUser!.uid
-        let dateString = dateFormatter.string(from: Date())
+        let dateString = DateModel.commonFormatter.string(from: Date())
 
         db.collection("users").document(uid)
             .collection("studies").document(dateString).getDocument { document, _ in

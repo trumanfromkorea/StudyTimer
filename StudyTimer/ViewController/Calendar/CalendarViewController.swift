@@ -12,8 +12,6 @@ class CalendarViewController: UIViewController {
     static let identifier = "CalendarViewController"
     static let storyboard = "CalendarView"
 
-    let dateFormatter = DateFormatter()
-
     var dateList: [String: DateInfo] = [:]
 
     @IBOutlet var calendarView: FSCalendar!
@@ -21,12 +19,8 @@ class CalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        calendarView.delegate = self
-        calendarView.dataSource = self
-
         dummyData()
-        configureStates()
-
+        configureCalendarView()
     }
 
     private func dummyData() {
@@ -39,8 +33,9 @@ class CalendarViewController: UIViewController {
         }
     }
 
-    private func configureStates() {
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+    private func configureCalendarView() {
+        calendarView.delegate = self
+        calendarView.dataSource = self
 
         calendarView.scrollDirection = .vertical
 
@@ -50,14 +45,14 @@ class CalendarViewController: UIViewController {
 
         calendarView.appearance.weekdayTextColor = .label
         calendarView.appearance.titleDefaultColor = .label
-        
+
         calendarView.appearance.selectionColor = .label
     }
 }
 
 extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillDefaultColorFor date: Date) -> UIColor? {
-        let dateString = dateFormatter.string(from: date)
+        let dateString = DateModel.commonFormatter.string(from: date)
         var alpha: CGFloat = 0
 
         if let dateInfo = dateList[dateString] {

@@ -19,14 +19,6 @@ class StopTimerViewController: UIViewController {
     var endTime = 0
     var studyContents = ""
 
-    var dateFormatter: DateFormatter {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "KR")
-        formatter.dateFormat = "YYYY-MM-dd"
-
-        return formatter
-    }
-
     var dataSource: UICollectionViewDiffableDataSource<Section, Item>!
     typealias Item = Int
     enum Section {
@@ -53,14 +45,14 @@ class StopTimerViewController: UIViewController {
     }
 
     @IBAction func onTappedDoneButton(_ sender: Any) {
-        if studyContentsField.text == nil || ratingIndex == nil {
+        if studyContentsField.text!.isEmpty || ratingIndex == nil {
             print("미입력 항목 있음")
             return
         }
         if endTime < startTime {
             whenDateIsDifferent()
         } else {
-            let dateString = dateFormatter.string(from: Date())
+            let dateString = DateModel.commonFormatter.string(from: Date())
             storeStudyInfo(dateString: dateString, startTime: startTime, endTime: endTime, studyTime: studyTime, showPopup: true)
         }
     }
@@ -68,8 +60,8 @@ class StopTimerViewController: UIViewController {
     // 날짜 넘어가는 부분
     private func whenDateIsDifferent() {
         let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: Date())
-        let dateA = dateFormatter.string(from: yesterday!)
-        let dateB = dateFormatter.string(from: Date())
+        let dateA = DateModel.commonFormatter.string(from: yesterday!)
+        let dateB = DateModel.commonFormatter.string(from: Date())
 
         let startTimeA = startTime
         let endTimeA = 86399

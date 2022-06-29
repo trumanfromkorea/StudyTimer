@@ -21,20 +21,20 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U1B-hr-aB2">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="450"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cWP-KG-Lxg">
-                                                <rect key="frame" x="20" y="0.0" width="374" height="400"/>
+                                                <rect key="frame" x="20" y="0.0" width="374" height="450"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xLU-ml-SaN" customClass="BarChartView" customModule="Charts">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="250"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="300"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="250" id="pYR-4C-qY1"/>
+                                                            <constraint firstAttribute="height" constant="300" id="pYR-4C-qY1"/>
                                                         </constraints>
                                                     </view>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XOR-rT-rMr">
-                                                        <rect key="frame" x="0.0" y="250" width="374" height="150"/>
+                                                        <rect key="frame" x="0.0" y="300" width="374" height="150"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="150" id="Fco-96-exb"/>

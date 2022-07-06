@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0D08BC9F285D0F2800D34CC7 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D08BC9E285D0F2800D34CC7 /* AuthModel.swift */; };
-		0D09C3522863483B00FAE80A /* WeeklyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D09C3512863483B00FAE80A /* WeeklyModel.swift */; };
 		0D09C35428634AA900FAE80A /* StudyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D09C35328634AA900FAE80A /* StudyModel.swift */; };
 		0D1A3F332851F73800685D86 /* StopTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1A3F322851F73800685D86 /* StopTimerViewController.swift */; };
 		0D264FBB286389D200904662 /* WeeklyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D264FBA286389D200904662 /* WeeklyCell.swift */; };
@@ -32,6 +31,7 @@
 		0DA464872853320A003CE149 /* CalendarView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DA464862853320A003CE149 /* CalendarView.storyboard */; };
 		0DA4648928533219003CE149 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA4648828533219003CE149 /* CalendarViewController.swift */; };
 		0DA4648B285336EC003CE149 /* DateTimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA4648A285336EC003CE149 /* DateTimeModel.swift */; };
+		0DE313EB2875E3E800BCE4C1 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE313EA2875E3E700BCE4C1 /* UIColor+.swift */; };
 		0DED8AA4284F5646004345F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DED8AA3284F5646004345F9 /* AppDelegate.swift */; };
 		0DED8AA6284F5646004345F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DED8AA5284F5646004345F9 /* SceneDelegate.swift */; };
 		0DED8AA8284F5646004345F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DED8AA7284F5646004345F9 /* ViewController.swift */; };
@@ -43,7 +43,6 @@
 		0DED8AC7284F5646004345F9 /* StudyTimerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DED8AC6284F5646004345F9 /* StudyTimerUITestsLaunchTests.swift */; };
 		0DED8AD8284F5729004345F9 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DED8AD7284F5729004345F9 /* TimerViewController.swift */; };
 		0DED8ADA284F5757004345F9 /* TimerView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DED8AD9284F5757004345F9 /* TimerView.storyboard */; };
-		0DED8ADC284F670A004345F9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DED8ADB284F670A004345F9 /* Extensions.swift */; };
 		0DEF5C812861FC1C00BCC206 /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEF5C802861FC1C00BCC206 /* CircularProgressBarView.swift */; };
 		0DEF5C84286217D000BCC206 /* SettingsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DEF5C83286217D000BCC206 /* SettingsView.storyboard */; };
 		0DEF5C86286217E100BCC206 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEF5C85286217E100BCC206 /* SettingsViewController.swift */; };
@@ -69,7 +68,6 @@
 
 /* Begin PBXFileReference section */
 		0D08BC9E285D0F2800D34CC7 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
-		0D09C3512863483B00FAE80A /* WeeklyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyModel.swift; sourceTree = "<group>"; };
 		0D09C35328634AA900FAE80A /* StudyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyModel.swift; sourceTree = "<group>"; };
 		0D1A3F322851F73800685D86 /* StopTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopTimerViewController.swift; sourceTree = "<group>"; };
 		0D264FBA286389D200904662 /* WeeklyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyCell.swift; sourceTree = "<group>"; };
@@ -87,6 +85,7 @@
 		0DA464862853320A003CE149 /* CalendarView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CalendarView.storyboard; sourceTree = "<group>"; };
 		0DA4648828533219003CE149 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		0DA4648A285336EC003CE149 /* DateTimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeModel.swift; sourceTree = "<group>"; };
+		0DE313EA2875E3E700BCE4C1 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		0DED8AA0284F5646004345F9 /* StudyTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DED8AA3284F5646004345F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DED8AA5284F5646004345F9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,7 +101,6 @@
 		0DED8AC6284F5646004345F9 /* StudyTimerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyTimerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0DED8AD7284F5729004345F9 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		0DED8AD9284F5757004345F9 /* TimerView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimerView.storyboard; sourceTree = "<group>"; };
-		0DED8ADB284F670A004345F9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		0DEF5C802861FC1C00BCC206 /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
 		0DEF5C83286217D000BCC206 /* SettingsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsView.storyboard; sourceTree = "<group>"; };
 		0DEF5C85286217E100BCC206 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -154,32 +152,55 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		0D1A3F312851F6C300685D86 /* ViewController */ = {
+		0D1A3F312851F6C300685D86 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				0DEF5C82286217C400BCC206 /* Settings */,
-				0DFD22C6285C8E93003449F2 /* Weekly */,
-				0DFD22C5285C8E8B003449F2 /* Calendar */,
-				0DFD22C4285C8E7B003449F2 /* Timer */,
-				0DFD22C3285C8E6F003449F2 /* Auth */,
-				0DFD22C2285C8E61003449F2 /* Home */,
+				0DEF5C82286217C400BCC206 /* SettingsPage */,
+				0DFD22C6285C8E93003449F2 /* WeeklyPage */,
+				0DFD22C5285C8E8B003449F2 /* CalendarPage */,
+				0DFD22C4285C8E7B003449F2 /* TimerPage */,
+				0DFD22C3285C8E6F003449F2 /* AuthPage */,
+				0DFD22C2285C8E61003449F2 /* HomePage */,
 				0DED8AA7284F5646004345F9 /* ViewController.swift */,
 			);
-			path = ViewController;
+			path = Scene;
 			sourceTree = "<group>";
 		};
 		0D519F9328525CB100EAED72 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0DED8ADB284F670A004345F9 /* Extensions.swift */,
 				0D519F9428525CBE00EAED72 /* ThemeModel.swift */,
 				0DA4648A285336EC003CE149 /* DateTimeModel.swift */,
-				0D09C3512863483B00FAE80A /* WeeklyModel.swift */,
 				0D09C35328634AA900FAE80A /* StudyModel.swift */,
 				0D28EF6F285B1B9B00E6AFF4 /* ValidationModel.swift */,
 				0D08BC9E285D0F2800D34CC7 /* AuthModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0DE313E62875E39E00BCE4C1 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				0D264FBA286389D200904662 /* WeeklyCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		0DE313E72875E3B500BCE4C1 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				0D9B042F2853B556008CFA41 /* RatingCell.swift */,
+				0DEF5C802861FC1C00BCC206 /* CircularProgressBarView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		0DE313E82875E3D400BCE4C1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0DE313EA2875E3E700BCE4C1 /* UIColor+.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		0DED8A97284F5646004345F9 = {
@@ -206,8 +227,9 @@
 			isa = PBXGroup;
 			children = (
 				0D4117D4285462AA00852278 /* GoogleService-Info.plist */,
+				0DE313E82875E3D400BCE4C1 /* Extensions */,
 				0D519F9328525CB100EAED72 /* Model */,
-				0D1A3F312851F6C300685D86 /* ViewController */,
+				0D1A3F312851F6C300685D86 /* Scene */,
 				0D1A3F302851F6B400685D86 /* View */,
 				0DED8AA3284F5646004345F9 /* AppDelegate.swift */,
 				0DED8AA5284F5646004345F9 /* SceneDelegate.swift */,
@@ -235,58 +257,57 @@
 			path = StudyTimerUITests;
 			sourceTree = "<group>";
 		};
-		0DEF5C82286217C400BCC206 /* Settings */ = {
+		0DEF5C82286217C400BCC206 /* SettingsPage */ = {
 			isa = PBXGroup;
 			children = (
 				0DEF5C85286217E100BCC206 /* SettingsViewController.swift */,
 			);
-			path = Settings;
+			path = SettingsPage;
 			sourceTree = "<group>";
 		};
-		0DFD22C2285C8E61003449F2 /* Home */ = {
+		0DFD22C2285C8E61003449F2 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
 				0D9E06EC28503D340031AA55 /* HomeViewController.swift */,
 			);
-			path = Home;
+			path = HomePage;
 			sourceTree = "<group>";
 		};
-		0DFD22C3285C8E6F003449F2 /* Auth */ = {
+		0DFD22C3285C8E6F003449F2 /* AuthPage */ = {
 			isa = PBXGroup;
 			children = (
 				0D28EF6B285B15C500E6AFF4 /* SignInViewController.swift */,
 				0D28EF6D285B15D700E6AFF4 /* SignUpViewController.swift */,
 			);
-			path = Auth;
+			path = AuthPage;
 			sourceTree = "<group>";
 		};
-		0DFD22C4285C8E7B003449F2 /* Timer */ = {
+		0DFD22C4285C8E7B003449F2 /* TimerPage */ = {
 			isa = PBXGroup;
 			children = (
+				0DE313E72875E3B500BCE4C1 /* Components */,
 				0DED8AD7284F5729004345F9 /* TimerViewController.swift */,
 				0D1A3F322851F73800685D86 /* StopTimerViewController.swift */,
-				0D9B042F2853B556008CFA41 /* RatingCell.swift */,
-				0DEF5C802861FC1C00BCC206 /* CircularProgressBarView.swift */,
 			);
-			path = Timer;
+			path = TimerPage;
 			sourceTree = "<group>";
 		};
-		0DFD22C5285C8E8B003449F2 /* Calendar */ = {
+		0DFD22C5285C8E8B003449F2 /* CalendarPage */ = {
 			isa = PBXGroup;
 			children = (
 				0DA4648828533219003CE149 /* CalendarViewController.swift */,
 			);
-			path = Calendar;
+			path = CalendarPage;
 			sourceTree = "<group>";
 		};
-		0DFD22C6285C8E93003449F2 /* Weekly */ = {
+		0DFD22C6285C8E93003449F2 /* WeeklyPage */ = {
 			isa = PBXGroup;
 			children = (
+				0DE313E62875E39E00BCE4C1 /* Components */,
 				0D9D06F92852FD890072DC8D /* WeeklyViewController.swift */,
-				0D264FBA286389D200904662 /* WeeklyCell.swift */,
 				0DF1CE702864D0180010FAF1 /* WeeklyHeader.swift */,
 			);
-			path = Weekly;
+			path = WeeklyPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -450,13 +471,12 @@
 				0DED8AA4284F5646004345F9 /* AppDelegate.swift in Sources */,
 				0D28EF6C285B15C500E6AFF4 /* SignInViewController.swift in Sources */,
 				0D1A3F332851F73800685D86 /* StopTimerViewController.swift in Sources */,
-				0DED8ADC284F670A004345F9 /* Extensions.swift in Sources */,
 				0D28EF6E285B15D700E6AFF4 /* SignUpViewController.swift in Sources */,
 				0D264FBB286389D200904662 /* WeeklyCell.swift in Sources */,
 				0D519F9528525CBE00EAED72 /* ThemeModel.swift in Sources */,
 				0DA4648B285336EC003CE149 /* DateTimeModel.swift in Sources */,
-				0D09C3522863483B00FAE80A /* WeeklyModel.swift in Sources */,
 				0D9D06FA2852FD890072DC8D /* WeeklyViewController.swift in Sources */,
+				0DE313EB2875E3E800BCE4C1 /* UIColor+.swift in Sources */,
 				0D08BC9F285D0F2800D34CC7 /* AuthModel.swift in Sources */,
 				0DED8AA6284F5646004345F9 /* SceneDelegate.swift in Sources */,
 				0DF1CE712864D0180010FAF1 /* WeeklyHeader.swift in Sources */,
